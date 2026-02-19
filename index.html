@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Helvetica Neue 85 Heavy, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -29,28 +29,36 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 40px;
   border-bottom: 1px solid #222;
   z-index: 1000;
 }
 
-.nav .logo {
+.logo {
   font-weight: bold;
   font-size: 20px;
   letter-spacing: 2px;
 }
 
-.nav .menu span {
-  margin-left: 25px;
-  font-size: 14px;
+.menu span {
+  margin-left: 30px;
+  font-size: 13px;
   cursor: pointer;
   opacity: 0.7;
+  transition: 0.3s;
 }
 
-.nav .live {
-  color: #00ff66;
+.menu span:hover {
+  opacity: 1;
+}
+
+/* LIVE indicator */
+.live {
+  color: #ff2a2a;
   font-size: 12px;
-  margin-right: 10px;
+  font-weight: bold;
+  margin-right: 15px;
+  letter-spacing: 1px;
 }
 
 /* HERO */
@@ -59,7 +67,7 @@ body {
   background: url('https://images.unsplash.com/photo-1497032205916-ac775f0649ae') center/cover no-repeat;
   display: flex;
   align-items: center;
-  padding-left: 60px;
+  padding-left: 80px;
   position: relative;
 }
 
@@ -67,7 +75,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.55);
 }
 
 .hero-content {
@@ -76,12 +84,13 @@ body {
 }
 
 .hero h1 {
-  font-size: 80px;
-  line-height: 1;
+  font-size: 90px;
+  line-height: 0.9;
+  font-weight: 800;
 }
 
 .hero p {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 18px;
   opacity: 0.8;
 }
@@ -96,23 +105,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 0 40px;
   border-top: 1px solid #222;
 }
 
 .player button {
-  padding: 8px 20px;
+  padding: 8px 22px;
   background: white;
   border: none;
   cursor: pointer;
   font-weight: bold;
+  font-family: inherit;
 }
 
 .player span {
   opacity: 0.7;
   font-size: 14px;
 }
-
 </style>
 </head>
 
@@ -133,8 +142,8 @@ body {
 
 <div class="hero">
   <div class="hero-content">
-    <h1>RESIDENT<br>PICKS</h1>
-    <p>Beyond Everyday Limits</p>
+    <h1>BREAK<br>EVERY<br>LAYER</h1>
+    <p>BEL — Independent Web Radio</p>
   </div>
 </div>
 
