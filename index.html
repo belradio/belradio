@@ -13,10 +13,10 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 /* ================= HEADER CONTAINER ================= */
 .header-container { position: fixed; top: 0; width: 100%; z-index: 1000; }
 .nav-top { height: 48px; background: #000; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #fff; padding: 0 15px; }
-.logo-main img { height: 46px; cursor: pointer; transition: 0.3s; }
+.logo-main img { height: 46px; }
 
 .nav-right-side { display: flex; align-items: center; }
-.menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; transition: 0.2s; }
+.menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; }
 
 .search-container { display: flex; align-items: center; padding-left: 15px; margin-left: 5px; height: 24px; border-left: 1px solid #fff; }
 .search-wrapper { display: flex; align-items: center; gap: 8px; }
@@ -59,14 +59,32 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 /* JAJARAN KANAN */
 .player-right { display: flex; align-items: center; height: 100%; }
 .icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
-.icon-group span { cursor: pointer; font-size: 16px; font-weight: 700; display: flex; align-items: center; color: #000; }
 
-/* PAKSA SHARE HITAM PEKAT */
+/* SET UKURAN ICON SHARE & LOVE BIAR SAMA */
+.icon-group span { 
+    cursor: pointer; 
+    font-size: 20px; /* Ukuran diseragamkan */
+    display: flex; 
+    align-items: center; 
+    color: #000;
+    transition: 0.2s;
+}
+
+/* KHUSUS ICON SHARE HITAM PEKAT */
 .share-icon { 
-    color: #000 !important; 
-    opacity: 1 !important; 
-    -webkit-filter: grayscale(100%) brightness(0); /* Tambahan filter untuk memastikan hitam */
-    filter: grayscale(100%) brightness(0);
+    opacity: 1 !important;
+    font-weight: 900;
+}
+
+/* KHUSUS ICON LOVE */
+#like-btn { 
+    opacity: 0.2; /* Awalnya pudar (line doang) */
+    font-weight: 400;
+    font-size: 22px; /* Disesuaikan sedikit agar visual sizenya imbang dengan share */
+}
+#like-btn.active { 
+    opacity: 1; /* Pas diklik jadi Hitam Pekat */
+    font-weight: 900; /* Garis line jadi tebal/bold */
 }
 
 .divider { width: 1px; height: 100%; background: #000; opacity: 0.1; } 
@@ -132,7 +150,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 </div>
 
 <script>
-  // Play/Stop Toggle
   const smallBtn = document.getElementById('toggle-small');
   const bottomBtn = document.getElementById('toggle-bottom');
   let isPlaying = false;
@@ -151,19 +168,10 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   smallBtn.addEventListener('click', handleToggle);
   bottomBtn.addEventListener('click', handleToggle);
 
-  // LOGIKA LIKE: LINE (♡) -> BLOK HITAM (♥)
+  // LOGIKA LIKE: TETAP ♡ TAPI JADI HITAM PEKAT & TEBAL
   const likeBtn = document.getElementById('like-btn');
-  let isLiked = false;
-
   likeBtn.addEventListener('click', function() {
-    isLiked = !isLiked;
-    if (isLiked) {
-      this.innerHTML = '♥'; 
-      this.style.color = '#000';
-    } else {
-      this.innerHTML = '♡';
-      this.style.color = '#000';
-    }
+    this.classList.toggle('active');
   });
 </script>
 
