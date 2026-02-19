@@ -37,20 +37,28 @@ body {
 .left {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
-.left span {
+/* LIVE BLINK */
+.live {
+  color: #ff0000;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1px;
+  animation: blink 1.2s infinite;
 }
 
-.live {
-  color: #ff0000;
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
 }
 
-.brand {
-  margin-left: 15px;
+.session {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .menu span {
@@ -66,8 +74,16 @@ body {
   height: 100vh;
   background: #000;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   padding-left: 80px;
+}
+
+.hero .brand {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
 }
 
 .hero h1 {
@@ -113,7 +129,7 @@ body {
 <div class="nav">
   <div class="left">
     <span class="live">● LIVE</span>
-    <span class="brand">BEL RADIO</span>
+    <span class="session">BREAK EVERY LAYER SESSIONS</span>
   </div>
   <div class="menu">
     <span>RADIO</span>
@@ -124,6 +140,7 @@ body {
 </div>
 
 <div class="hero">
+  <div class="brand">BEL RADIO</div>
   <h1>BREAK<br>EVERY<br>LAYER</h1>
 </div>
 
