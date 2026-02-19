@@ -29,32 +29,18 @@ body{
   background:#000;
   display:flex;
   align-items:center;
+  justify-content: space-between; /* Biar ada kiri dan kanan */
   border-bottom:1px solid #fff;
   z-index:1000;
 }
 
-.nav-left{
+.nav-left, .nav-right{
   display:flex;
   align-items:center;
   height:100%;
 }
 
-/* LOGO STYLE */
-.logo{
-  height: 100%;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-right: 1px solid #fff;
-}
-
-.logo img {
-  height: 35px; /* Ukuran pas untuk bar 60px */
-  width: auto;
-  display: block;
-}
-
+/* LIVE DI PALING KIRI */
 .live{
   padding:0 20px;
   font-size:13px;
@@ -77,15 +63,19 @@ body{
   100%{opacity:1;}
 }
 
-.channel{
-  padding:0 18px;
-  font-weight:900;
-  font-size:16px;
+/* LOGO CONTAINER */
+.logo-container{
+  padding:0 15px;
   border-right:1px solid #fff;
   display:flex;
   align-items:center;
   height:100%;
-  letter-spacing: 1px;
+}
+
+.logo-container img {
+  height: 45px; 
+  width: auto;
+  display: block;
 }
 
 .show{
@@ -93,6 +83,26 @@ body{
   font-size:13px;
   font-weight:700;
   text-transform: uppercase;
+}
+
+/* MENU NAVIGASI KANAN */
+.nav-item{
+  padding:0 20px;
+  font-size:13px;
+  font-weight:700;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #fff;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.nav-item:hover{
+  background: #fff;
+  color: #000;
 }
 
 /* ================= HERO ================= */
@@ -257,14 +267,18 @@ body{
 
 <div class="nav">
   <div class="nav-left">
-    
-    <div class="logo">
+    <div class="live">LIVE NOW <span>●</span></div>
+    <div class="logo-container">
       <img src="New%20Project%20(3).png" alt="RAT Logo">
     </div>
-    
-    <div class="live">LIVE NOW <span>●</span></div>
-    <div class="channel">RAT-01</div>
     <div class="show">Basement Sessions</div>
+  </div>
+
+  <div class="nav-right">
+    <a href="#" class="nav-item">Radio</a>
+    <a href="#" class="nav-item">Sessions</a>
+    <a href="#" class="nav-item">About</a>
+    <a href="#" class="nav-item">Search 🔍</a>
   </div>
 </div>
 
