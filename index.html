@@ -15,9 +15,10 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .nav-top { height: 48px; background: #000; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #fff; padding: 0 15px; }
 .logo-main img { height: 46px; cursor: pointer; transition: 0.3s; }
 .logo-main:hover img { transform: scale(1.1); }
+
 .nav-right-side { display: flex; align-items: center; }
 .menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; transition: 0.2s; }
-.menu-links a:hover { color: #aaa; }
+.menu-links a:hover { color: #888; }
 
 .search-container { display: flex; align-items: center; padding-left: 15px; margin-left: 5px; height: 24px; border-left: 1px solid #fff; }
 .search-wrapper { display: flex; align-items: center; gap: 8px; }
@@ -26,53 +27,58 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .search-icon { width: 13px; height: 13px; border: 1.5px solid #fff; border-radius: 50%; position: relative; }
 .search-icon::after { content: ""; position: absolute; width: 1.5px; height: 5px; background: #fff; bottom: -3px; right: -2px; transform: rotate(-45deg); }
 
-/* ================= NAV LIVE ================= */
+/* ================= NAV LIVE (B&W ONLY) ================= */
 .nav-live { height: 32px; background: #000; display: flex; align-items: center; border-bottom: 1px solid #fff; }
-.live-label { background: #fff; color: #000; height: 100%; padding: 0 12px; font-size: 10px; font-weight: 900; display: flex; align-items: center; gap: 6px; text-transform: uppercase; }
-.live-label span { color: red; animation: blink 1.5s infinite; }
+.live-label { background: #fff; color: #000; height: 100%; padding: 0 12px; font-size: 10px; font-weight: 700; display: flex; align-items: center; gap: 6px; text-transform: uppercase; }
+.live-label span { color: #000; font-size: 12px; animation: blink 1.5s infinite; } /* Dot Jadi Hitam */
 @keyframes blink { 0%, 100% {opacity:1;} 50% {opacity:0.2;} }
-.current-show { padding: 0 15px; font-size: 11px; font-weight: 700; display: flex; align-items: center; }
+.current-show { padding: 0 15px; font-size: 11px; font-weight: 700; display: flex; align-items: center; text-transform: uppercase; }
 
 .btn-toggle-small { cursor: pointer; margin-right: 12px; width: 14px; display: flex; justify-content: center; }
 .stop-square-small { width: 10px; height: 10px; background: #fff; }
 
 /* ================= HERO ================= */
-.hero{ position:relative; height:100vh; background:url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') center/cover; display:flex; align-items:flex-end; padding:60px; }
+.hero{ position:relative; height:100vh; background:url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') center/cover; display:flex; align-items:flex-end; padding:60px; filter: grayscale(100%); } /* Hero Jadi BW */
 .overlay{ position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,1) 5%, rgba(0,0,0,0.2)); }
 .hero-content{ position:relative; margin-bottom: 80px; }
-.hero h2{ font-size: 80px; font-weight: 900; line-height: 0.8; letter-spacing: -3px; text-transform: uppercase; }
-.hero p { font-size: 13px; opacity: 0.7; }
+.hero h2{ font-size: 80px; font-weight: 700; line-height: 0.8; letter-spacing: -3px; text-transform: uppercase; }
+.hero p { font-size: 13px; opacity: 0.7; font-weight: 400; }
 
-/* ================= PLAYER FIXED (SESUAI GAMBAR) ================= */
+/* ================= PLAYER FIXED (MONOCHROME) ================= */
 .player-fixed {
   position: fixed; bottom: 0; width: 100%; height: 55px; background: #fff; color: #000;
   display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #000; z-index: 1000;
 }
 
 .player-left { display: flex; align-items: center; padding-left: 20px; gap: 15px; }
-.btn-toggle-bottom { cursor: pointer; font-size: 20px; width: 25px; display: flex; justify-content: center; }
+.btn-toggle-bottom { cursor: pointer; font-size: 20px; width: 25px; display: flex; justify-content: center; transition: 0.2s; }
+.btn-toggle-bottom:hover { opacity: 0.5; }
 .stop-square-bottom { width: 14px; height: 14px; background: #000; }
+
 .track-box { display: flex; align-items: center; gap: 12px; }
-.track-box img { width: 38px; height: 38px; border: 1px solid #000; }
-.title-info b { font-size: 11px; display: block; text-transform: uppercase; }
-.title-info span { font-size: 9px; opacity: 0.6; }
+.track-box img { width: 38px; height: 38px; border: 1px solid #000; filter: grayscale(100%); }
+.title-info b { font-size: 11px; display: block; text-transform: uppercase; font-weight: 700; }
+.title-info span { font-size: 9px; opacity: 0.7; font-weight: 400; }
 
-/* BAGIAN KANAN SESUAI GAMBAR */
+/* BAGIAN KANAN SESUAI REFERENSI GAMBAR (B&W) */
 .player-right { display: flex; align-items: center; height: 100%; }
-.icon-group { display: flex; align-items: center; gap: 18px; padding: 0 20px; }
-.icon-group img, .icon-group span { cursor: pointer; height: 18px; display: flex; align-items: center; }
+.icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
+.icon-group span { cursor: pointer; font-size: 14px; font-weight: 700; display: flex; align-items: center; transition: 0.2s; }
+.icon-group span:hover { opacity: 0.5; }
 
-.divider { width: 1px; height: 100%; background: #e0e0e0; }
+.divider { width: 1px; height: 100%; background: #ddd; } /* Garis pemisah tipis */
 
 .up-next-btn {
   display: flex; align-items: center; gap: 8px; padding: 0 20px;
-  font-weight: 800; font-size: 11px; color: #000; text-decoration: none;
+  font-weight: 700; font-size: 11px; color: #000; text-decoration: none; transition: 0.2s;
 }
+.up-next-btn:hover { opacity: 0.5; }
 
 .close-btn {
-  padding: 0 20px; font-size: 18px; font-weight: bold; cursor: pointer;
-  border-left: 1px solid #e0e0e0; height: 100%; display: flex; align-items: center;
+  padding: 0 20px; font-size: 16px; font-weight: 700; cursor: pointer;
+  border-left: 1px solid #ddd; height: 100%; display: flex; align-items: center; transition: 0.2s;
 }
+.close-btn:hover { opacity: 0.5; }
 </style>
 </head>
 <body>
@@ -104,9 +110,9 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
   <div class="player-right">
     <div class="icon-group">
-      <span title="Rewind 30s">⟲<sub>30</sub></span>
-      <span title="Forward 30s">⟳<sub>30</sub></span>
-      <span title="SoundCloud">☁️</span>
+      <span title="Rewind 30s">⟲ 30</span>
+      <span title="Forward 30s">⟳ 30</span>
+      <span title="SoundCloud" style="font-size: 18px;">☁</span>
     </div>
     
     <div class="divider"></div>
