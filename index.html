@@ -39,10 +39,22 @@ body{
   padding: 0 15px;
 }
 
+/* LOGO SECTION - Diperbesar secara maksimal */
+.logo-main {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .logo-main img {
-  height: 38px; 
+  height: 46px; /* Hampir menyentuh garis (48px) agar terlihat besar */
   width: auto;
   display: block;
+  transition: 0.3s;
+}
+
+.logo-main img:hover {
+  transform: scale(1.05); /* Efek zoom dikit pas di-hover */
 }
 
 .nav-right-side {
@@ -60,7 +72,7 @@ body{
   color: #fff;
   text-decoration: none;
   font-size: 11px;
-  font-weight: 700; /* Font weight menu utama */
+  font-weight: 700;
   text-transform: uppercase;
   padding: 0 15px;
   display: flex;
@@ -124,7 +136,7 @@ body{
   transform: rotate(-45deg);
 }
 
-/* ================= NAV LIVE (FONT DISAMAKAN) ================= */
+/* ================= NAV LIVE ================= */
 
 .nav-live {
   height: 32px; 
@@ -157,8 +169,8 @@ body{
 
 .current-show {
   padding: 0 15px;
-  font-size: 11px; /* Samakan ukuran dengan menu atas */
-  font-weight: 700; /* Samakan ketebalan dengan menu atas (Latest, Explore) */
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
