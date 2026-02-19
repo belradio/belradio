@@ -38,7 +38,7 @@ body{
   padding: 0 15px;
 }
 
-/* LOGO - INTERAKTIF HOVER */
+/* LOGO - INTERAKTIF */
 .logo-main {
   display: flex;
   align-items: center;
@@ -86,7 +86,7 @@ body{
   color: #000;
 }
 
-/* SEARCH AREA - INTERAKTIF FOCUS */
+/* SEARCH - INTERAKTIF */
 .search-container {
   display: flex;
   align-items: center;
@@ -179,12 +179,14 @@ body{
   align-items: center;
 }
 
+/* TOMBOL TOGGLE KECIL (UKURAN DIKALIBRASI) */
 .btn-toggle-small {
   cursor: pointer;
   margin-right: 12px;
-  font-size: 12px;
-  width: 15px;
-  display: inline-block;
+  font-size: 14px; /* Sedikit lebih besar agar kotak terlihat solid */
+  width: 18px;
+  display: flex;
+  justify-content: center;
   user-select: none;
 }
 
@@ -210,6 +212,7 @@ body{
   margin-bottom: 80px; 
 }
 
+/* TOMBOL TOGGLE BESAR (UKURAN DIKALIBRASI) */
 .btn-toggle-main {
   width: 60px;
   height: 60px;
@@ -218,7 +221,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 28px; /* Diperbesar agar kotak (■) sama dominannya dengan (▶) */
   cursor: pointer;
   margin-bottom: 20px;
   transition: 0.2s;
@@ -227,7 +230,6 @@ body{
 
 .btn-toggle-main:hover { transform: scale(1.1); background: #ff0000; color: #fff; }
 
-/* TEXT HERO UPDATED */
 .hero h2{
   font-size: 80px; 
   font-weight: 900;
@@ -238,7 +240,7 @@ body{
 }
 
 .hero h2 span {
-    text-transform: none; /* Mengikuti ketikan di HTML (Radio) */
+    text-transform: none;
 }
 
 .hero p { font-size: 13px; opacity: 0.7; max-width: 350px; }
@@ -271,7 +273,7 @@ body{
 <div class="header-container">
   <div class="nav-top">
     <div class="logo-main">
-      <img src="New%20Project%20(3).png" alt="RAT LOGO">
+      <img src="New%20Project%20(3).png" alt="RAT Radio">
     </div>
     
     <div class="nav-right-side">
@@ -333,9 +335,14 @@ body{
     if (isPlaying) {
       smallBtn.innerText = '■';
       mainBtn.innerText = '■';
+      // Menambah sedikit koreksi font-size saat jadi kotak agar terlihat pas
+      smallBtn.style.fontSize = "13px";
+      mainBtn.style.fontSize = "26px";
     } else {
       smallBtn.innerText = '▶';
       mainBtn.innerText = '▶';
+      smallBtn.style.fontSize = "14px";
+      mainBtn.style.fontSize = "28px";
     }
   }
 
