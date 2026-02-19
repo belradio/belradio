@@ -42,7 +42,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .stop-square-small { width: 10px; height: 10px; background: #fff; }
 
 /* ================= HERO (VERTICAL ALIGNMENT) ================= */
-.hero{ position:relative; height:100vh; background:url(https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg) center/cover; display:flex; align-items:flex-end; padding:60px; filter: grayscale(100%); }
+.hero{ position:relative; height:100vh; background:url(https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop) center/cover; display:flex; align-items:flex-end; padding:60px; filter: grayscale(100%); }
 .overlay{ position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,1) 5%, rgba(0,0,0,0.2)); }
 
 .hero-content { 
@@ -78,7 +78,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .archive-item .img-box { width: 100%; aspect-ratio: 1/1; background: #111; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
 .archive-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
 
-/* Efek Hover: Gambar Berwarna dan Naik Sedikit */
 .archive-item:hover { transform: translateY(-8px); }
 .archive-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
 
@@ -157,29 +156,29 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     </div>
     
     <div class="archive-grid">
-        <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026', 'https://i.pinimg.com/736x/21/61/5c/21615c102573216892374e2a868f031b.jpg')">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/21/61/5c/21615c102573216892374e2a868f031b.jpg" alt="Archive"></div>
+        <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026', 'https://images.unsplash.com/photo-1514525253361-bee8a48740d7?q=80&w=1000&auto=format&fit=crop')">
+            <div class="img-box"><img src="https://images.unsplash.com/photo-1514525253361-bee8a48740d7?q=80&w=1000&auto=format&fit=crop" alt="Archive"></div>
             <div class="archive-info">
                 <b>The Sewer Ghost</b>
                 <span>Ghostface — 12 Feb 2026</span>
             </div>
         </div>
-        <div class="archive-item" onclick="changeTrack('NIGHT SHIFT', 'MALIK — 08 FEB 2026', 'https://i.pinimg.com/736x/1a/0d/1b/1a0d1b95345d3e232753239a51834167.jpg')">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/1a/0d/1b/1a0d1b95345d3e232753239a51834167.jpg" alt="Archive"></div>
+        <div class="archive-item" onclick="changeTrack('NIGHT SHIFT', 'MALIK — 08 FEB 2026', 'https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=1000&auto=format&fit=crop')">
+            <div class="img-box"><img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=1000&auto=format&fit=crop" alt="Archive"></div>
             <div class="archive-info">
                 <b>Night Shift</b>
                 <span>Malik — 08 Feb 2026</span>
             </div>
         </div>
-        <div class="archive-item" onclick="changeTrack('CONCRETE JUNGLE', 'VEX — 01 FEB 2026', 'https://i.pinimg.com/736x/0a/61/c1/0a61c14040f959c8849b2575239a5183.jpg')">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/0a/61/c1/0a61c14040f959c8849b2575239a5183.jpg" alt="Archive"></div>
+        <div class="archive-item" onclick="changeTrack('CONCRETE JUNGLE', 'VEX — 01 FEB 2026', 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=1000&auto=format&fit=crop')">
+            <div class="img-box"><img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=1000&auto=format&fit=crop" alt="Archive"></div>
             <div class="archive-info">
                 <b>Concrete Jungle</b>
                 <span>Vex — 01 Feb 2026</span>
             </div>
         </div>
-        <div class="archive-item" onclick="changeTrack('UNDERGROUND ECHO', 'LOST SIGNAL — 28 JAN 2026', 'https://i.pinimg.com/736x/82/72/72/82727276785265432a518341678f031b.jpg')">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/20/8b/1c/208b1c4310d54a5e3e232753239a5183.jpg" alt="Archive"></div>
+        <div class="archive-item" onclick="changeTrack('UNDERGROUND ECHO', 'LOST SIGNAL — 28 JAN 2026', 'https://images.unsplash.com/photo-1459749411177-042180ce673c?q=80&w=1000&auto=format&fit=crop')">
+            <div class="img-box"><img src="https://images.unsplash.com/photo-1459749411177-042180ce673c?q=80&w=1000&auto=format&fit=crop" alt="Archive"></div>
             <div class="archive-info">
                 <b>Underground Echo</b>
                 <span>Lost Signal — 28 Jan 2026</span>
@@ -192,7 +191,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   <div class="player-left">
     <div class="btn-toggle-bottom" id="toggle-bottom" title="Play/Stop">▶</div>
     <div class="track-box">
-      <img src="https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg" alt="Cover" id="bottom-cover">
+      <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=100&auto=format&fit=crop" alt="Cover" id="bottom-cover">
       <div class="title-info">
         <b id="player-title">In The Sewer</b>
         <span id="player-sub">Dirty Cat — 19 Feb 2026</span>
@@ -201,15 +200,15 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   </div>
   <div class="player-right">
     <div class="icon-group">
-        <span class="skip-btn" title="Rewind 30s">⟲ 30</span>
-        <span class="skip-btn" title="Forward 30s">⟳ 30</span>
-        <span class="sc-icon" title="Listen on SoundCloud">☁</span>
+        <span class="skip-btn">⟲ 30</span>
+        <span class="skip-btn">⟳ 30</span>
+        <span class="sc-icon">☁</span>
     </div>
     <div class="divider"></div>
     <div class="icon-group">
-        <span id="like-btn" title="Like">♡</span>
-        <span class="share-icon" title="Share Track">🔗</span>
-        <span class="menu-icon" title="More Options">☰</span>
+        <span id="like-btn">♡</span>
+        <span class="share-icon">🔗</span>
+        <span class="menu-icon">☰</span>
     </div>
     <a href="#" class="up-next-btn">UP NEXT <span>▲</span></a>
     <div class="close-btn" id="close-player">✕</div>
@@ -226,16 +225,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   
   let isPlaying = false; let isClosed = false;
 
-  function handleToggle() {
-    isPlaying = !isPlaying;
-    if (isClosed && isPlaying) {
-      isClosed = false; playerBar.style.display = 'flex';
-      setTimeout(() => { playerBar.style.transform = 'translateY(0)'; }, 10);
-      playerTitle.innerText = "BASEMENT SESSIONS"; playerSub.innerText = "DIRTY CAT — LIVE NOW";
-    }
-    updatePlayIcons();
-  }
-
   function updatePlayIcons() {
     const stopS = '<div class="stop-square-small"></div>';
     const stopB = '<div class="stop-square-bottom"></div>';
@@ -243,10 +232,19 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     bottomBtn.innerHTML = isPlaying ? stopB : '▶';
   }
 
+  function handleToggle() {
+    isPlaying = !isPlaying;
+    if (isClosed && isPlaying) {
+      isClosed = false; playerBar.style.display = 'flex';
+      setTimeout(() => { playerBar.style.transform = 'translateY(0)'; }, 10);
+    }
+    updatePlayIcons();
+  }
+
   function changeTrack(title, sub, imgSrc) {
     playerTitle.innerText = title;
     playerSub.innerText = sub;
-    bottomCover.src = imgSrc; // Mengganti cover di bar bawah sesuai item yang diklik
+    bottomCover.src = imgSrc; 
     if (!isPlaying) { isPlaying = true; updatePlayIcons(); }
     if (isClosed) { 
         isClosed = false; playerBar.style.display = 'flex';
@@ -261,7 +259,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   let isLiked = false;
   likeBtn.addEventListener('click', function() {
     isLiked = !isLiked; this.innerHTML = isLiked ? '♥' : '♡';
-    this.title = isLiked ? "Unlike" : "Like";
   });
 
   const closeBtn = document.getElementById('close-player');
