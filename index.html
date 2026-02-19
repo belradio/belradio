@@ -59,7 +59,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .hero-description { font-size: 13px; line-height: 1.6; opacity: 0.6; font-weight: 400; max-width: 420px; }
 
 /* ================= ARCHIVE SECTION ================= */
-.archive-section { padding: 80px 60px 120px 60px; background: #000; }
+.archive-section { padding: 80px 60px 140px 60px; background: #000; }
 .archive-header { 
     display: flex; justify-content: space-between; align-items: flex-end; 
     border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; margin-bottom: 40px; 
@@ -70,18 +70,20 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
 .archive-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
     gap: 40px 20px; 
 }
 
 .archive-item { cursor: pointer; transition: 0.3s; }
-.archive-item:hover { transform: translateY(-5px); }
 .archive-item .img-box { width: 100%; aspect-ratio: 1/1; background: #111; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
-.archive-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
-.archive-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
+.archive-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
 
-.archive-info b { display: block; font-size: 14px; text-transform: uppercase; font-weight: 800; margin-bottom: 4px; }
-.archive-info span { font-size: 11px; opacity: 0.5; text-transform: uppercase; }
+/* Efek Hover: Gambar Berwarna dan Naik Sedikit */
+.archive-item:hover { transform: translateY(-8px); }
+.archive-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
+
+.archive-info b { display: block; font-size: 14px; text-transform: uppercase; font-weight: 800; margin-bottom: 4px; color: #fff; }
+.archive-info span { font-size: 11px; opacity: 0.5; text-transform: uppercase; font-weight: 400; }
 
 /* ================= PLAYER FIXED ================= */
 .player-fixed {
@@ -155,25 +157,32 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     </div>
     
     <div class="archive-grid">
-        <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026')">
+        <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026', 'https://i.pinimg.com/736x/21/61/5c/21615c102573216892374e2a868f031b.jpg')">
             <div class="img-box"><img src="https://i.pinimg.com/736x/21/61/5c/21615c102573216892374e2a868f031b.jpg" alt="Archive"></div>
             <div class="archive-info">
                 <b>The Sewer Ghost</b>
                 <span>Ghostface — 12 Feb 2026</span>
             </div>
         </div>
-        <div class="archive-item" onclick="changeTrack('NIGHT SHIFT', 'MALIK — 08 FEB 2026')">
+        <div class="archive-item" onclick="changeTrack('NIGHT SHIFT', 'MALIK — 08 FEB 2026', 'https://i.pinimg.com/736x/1a/0d/1b/1a0d1b95345d3e232753239a51834167.jpg')">
             <div class="img-box"><img src="https://i.pinimg.com/736x/1a/0d/1b/1a0d1b95345d3e232753239a51834167.jpg" alt="Archive"></div>
             <div class="archive-info">
                 <b>Night Shift</b>
                 <span>Malik — 08 Feb 2026</span>
             </div>
         </div>
-        <div class="archive-item" onclick="changeTrack('CONCRETE JUNGLE', 'VEX — 01 FEB 2026')">
+        <div class="archive-item" onclick="changeTrack('CONCRETE JUNGLE', 'VEX — 01 FEB 2026', 'https://i.pinimg.com/736x/0a/61/c1/0a61c14040f959c8849b2575239a5183.jpg')">
             <div class="img-box"><img src="https://i.pinimg.com/736x/0a/61/c1/0a61c14040f959c8849b2575239a5183.jpg" alt="Archive"></div>
             <div class="archive-info">
                 <b>Concrete Jungle</b>
                 <span>Vex — 01 Feb 2026</span>
+            </div>
+        </div>
+        <div class="archive-item" onclick="changeTrack('UNDERGROUND ECHO', 'LOST SIGNAL — 28 JAN 2026', 'https://i.pinimg.com/736x/82/72/72/82727276785265432a518341678f031b.jpg')">
+            <div class="img-box"><img src="https://i.pinimg.com/736x/20/8b/1c/208b1c4310d54a5e3e232753239a5183.jpg" alt="Archive"></div>
+            <div class="archive-info">
+                <b>Underground Echo</b>
+                <span>Lost Signal — 28 Jan 2026</span>
             </div>
         </div>
     </div>
@@ -213,6 +222,8 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   const playerBar = document.getElementById('main-player');
   const playerTitle = document.getElementById('player-title');
   const playerSub = document.getElementById('player-sub');
+  const bottomCover = document.getElementById('bottom-cover');
+  
   let isPlaying = false; let isClosed = false;
 
   function handleToggle() {
@@ -232,10 +243,10 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     bottomBtn.innerHTML = isPlaying ? stopB : '▶';
   }
 
-  // Fungsi baru: Klik Archive ganti lagu di bar
-  function changeTrack(title, sub) {
+  function changeTrack(title, sub, imgSrc) {
     playerTitle.innerText = title;
     playerSub.innerText = sub;
+    bottomCover.src = imgSrc; // Mengganti cover di bar bawah sesuai item yang diklik
     if (!isPlaying) { isPlaying = true; updatePlayIcons(); }
     if (isClosed) { 
         isClosed = false; playerBar.style.display = 'flex';
