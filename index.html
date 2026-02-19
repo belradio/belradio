@@ -6,6 +6,7 @@
 <title>RAT RADIO | Underground Stream</title>
 
 <style>
+/* CSS RESET */
 *{
   margin:0;
   padding:0;
@@ -16,10 +17,10 @@
 body{
   background:#000;
   color:#fff;
-  overflow: hidden; 
+  overflow-x: hidden; 
 }
 
-/* ================= DOUBLE NAVBAR ================= */
+/* ================= HEADER CONTAINER ================= */
 
 .header-container {
   position: fixed;
@@ -28,19 +29,27 @@ body{
   z-index: 1000;
 }
 
-/* Nav Atas: Menu Utama */
+/* Bar Atas: Logo & Menu */
 .nav-top {
-  height: 45px;
+  height: 60px; /* Sedikit lebih tinggi biar logo enak dilihat */
   background: #000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #333; /* Border lebih gelap biar elegan */
-  padding: 0 15px;
+  border-bottom: 1px solid #fff; /* Konsistensi 1px Putih */
+  padding: 0;
+}
+
+.logo-main {
+  height: 100%;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #fff; /* Konsistensi 1px Putih */
 }
 
 .logo-main img {
-  height: 30px;
+  height: 45px; /* Logo diperbesar */
   width: auto;
   display: block;
 }
@@ -53,13 +62,14 @@ body{
 .menu-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0 15px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   letter-spacing: 1px;
+  border-left: 1px solid #fff; /* Konsistensi 1px Putih */
   transition: 0.2s;
 }
 
@@ -68,54 +78,42 @@ body{
   color: #000;
 }
 
-/* Nav Bawah: Live Player Info */
+/* Bar Bawah: Live Info */
 .nav-live {
   height: 40px;
   background: #000;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #fff; /* Konsistensi 1px Putih */
 }
 
 .live-label {
   background: #fff;
   color: #000;
   height: 100%;
-  padding: 0 15px;
+  padding: 0 20px;
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 600; /* Font live tidak terlalu bold */
   display: flex;
   align-items: center;
   gap: 8px;
+  text-transform: uppercase;
 }
 
 .live-label span {
   color: red;
   font-size: 14px;
-  animation: blink 1.2s infinite;
+  animation: blink 1.5s infinite;
 }
 
 @keyframes blink { 0% {opacity:1;} 50% {opacity:0.2;} 100% {opacity:1;} }
 
 .current-show {
-  display: flex;
-  align-items: center;
   padding: 0 20px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.5px;
-  flex-grow: 1;
-}
-
-.play-small {
-  margin-right: 15px;
-  cursor: pointer;
-}
-
-.location {
-  font-size: 10px;
-  opacity: 0.6;
-  padding-right: 20px;
+  text-transform: uppercase;
 }
 
 /* ================= HERO ================= */
@@ -132,40 +130,29 @@ body{
 .overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.3));
+  background:linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.4));
 }
 
 .hero-content{
   position:relative;
-  max-width:500px;
-  margin-bottom: 60px; 
-}
-
-.play-btn-large{
-  width:60px;
-  height:60px;
-  background:#fff;
-  color:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:20px;
-  cursor:pointer;
-  font-size:24px;
-  transition:0.2s;
+  max-width:600px;
+  margin-bottom: 80px; 
 }
 
 .hero h2{
-  font-size:56px;
+  font-size: 90px; 
   font-weight: 900;
-  line-height: 0.9;
-  margin-bottom: 10px;
+  line-height: 0.8;
+  margin-bottom: 20px;
+  letter-spacing: -4px;
+  text-transform: uppercase;
 }
 
 .hero p {
-  font-size: 14px;
-  opacity: 0.8;
-  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 400px;
+  opacity: 0.7;
 }
 
 /* ================= BOTTOM PLAYER ================= */
@@ -174,14 +161,15 @@ body{
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 65px;
   background: #fff;
   color: #000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  border-top: 1px solid #000;
+  padding: 0 25px;
+  border-top: 1px solid #000; /* Border atas player hitam biar kontras */
+  z-index: 1000;
 }
 
 .track-box {
@@ -191,14 +179,22 @@ body{
 }
 
 .track-box img {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border: 1px solid #000;
+  object-fit: cover;
 }
 
-.title-info b { font-size: 13px; display: block; }
-.title-info span { font-size: 11px; opacity: 0.7; }
+.title-info b { font-size: 14px; display: block; text-transform: uppercase; }
+.title-info span { font-size: 11px; opacity: 0.6; }
 
+.player-right-menu {
+  display: flex;
+  gap: 25px;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+}
 </style>
 </head>
 <body>
@@ -213,26 +209,23 @@ body{
       <a href="#">Explore</a>
       <a href="#">Shop</a>
       <a href="#">About</a>
-      <a href="#" style="border-left: 1px solid #333;">🔍</a>
+      <a href="#" style="background: #222;">🔍</a>
     </div>
   </div>
 
   <div class="nav-live">
-    <div class="live-label">LIVE NOW <span>●</span></div>
+    <div class="live-label">Live Now <span>●</span></div>
     <div class="current-show">
-      <span class="play-small">▶</span> 
-      BASEMENT SESSIONS W/ DIRTY CAT
+      ▶ BASEMENT SESSIONS W/ DIRTY CAT
     </div>
-    <div class="location">JAKARTA, ID</div>
   </div>
 </div>
 
 <div class="hero">
   <div class="overlay"></div>
   <div class="hero-content">
-    <div class="play-btn-large">▶</div>
     <h2>RAT<br>RADIO</h2>
-    <p>Broadcasting the unrefined. Post-punk, Noise, and Industrial frequencies from the basement.</p>
+    <p>Broadcasting the unrefined sounds from the basement. Industrial, Post-Punk, and Noise Archive.</p>
   </div>
 </div>
 
@@ -240,11 +233,15 @@ body{
   <div class="track-box">
     <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2" alt="Cover">
     <div class="title-info">
-      <b>IN THE SEWER</b>
-      <span>DIRTY CAT — 19 FEB 2026</span>
+      <b>In The Sewer</b>
+      <span>Dirty Cat — 19 Feb 2026</span>
     </div>
   </div>
-  <div style="font-weight: 900; font-size: 12px; cursor: pointer;">UP NEXT ↑</div>
+  
+  <div class="player-right-menu">
+    <div style="cursor: pointer;">Up Next ↑</div>
+    <div style="cursor: pointer;">✕</div>
+  </div>
 </div>
 
 </body>
