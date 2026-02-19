@@ -11,16 +11,14 @@
     margin:0; padding:0; box-sizing:border-box; 
     font-family: 'Inter', Helvetica, Arial, sans-serif; 
     -webkit-user-select: none; 
-    -ms-user-select: none;     
     user-select: none;         
 }
 
 body{ background:#000; color:#fff; overflow-x: hidden; }
 
-/* ================= HEADER CONTAINER ================= */
+/* ================= HEADER (Tetap Aman) ================= */
 .header-container { position: fixed; top: 0; width: 100%; z-index: 1000; }
 .nav-top { height: 48px; background: #000; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #fff; padding: 0 15px; }
-
 .logo-main img { height: 46px; cursor: pointer; transition: 0.3s; }
 .logo-main:hover img { transform: scale(1.05); }
 
@@ -30,85 +28,80 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
 .search-container { display: flex; align-items: center; padding-left: 15px; margin-left: 5px; height: 24px; border-left: 1px solid #fff; }
 .search-wrapper { display: flex; align-items: center; gap: 8px; }
-.search-input { 
-    background: transparent; border: none; border-bottom: 1px solid #fff; 
-    color: #fff; font-size: 12px; width: 80px; outline: none; transition: 0.4s; 
-    -webkit-user-select: text; user-select: text; 
-}
+.search-input { background: transparent; border: none; border-bottom: 1px solid #fff; color: #fff; font-size: 12px; width: 80px; outline: none; transition: 0.4s; -webkit-user-select: text; user-select: text; }
 .search-input:focus { width: 140px; }
 .search-icon { width: 13px; height: 13px; border: 1.5px solid #fff; border-radius: 50%; position: relative; cursor: pointer; }
 .search-icon::after { content: ""; position: absolute; width: 1.5px; height: 5px; background: #fff; bottom: -3px; right: -2px; transform: rotate(-45deg); }
 
-/* ================= NAV LIVE ================= */
 .nav-live { height: 32px; background: #000; display: flex; align-items: center; border-bottom: 1px solid #fff; }
 .live-label { background: #fff; color: #000; height: 100%; padding: 0 12px; font-size: 10px; font-weight: 700; display: flex; align-items: center; gap: 6px; text-transform: uppercase; }
 .live-label span { color: #ff0000; font-size: 14px; animation: blink 1.5s infinite; } 
 @keyframes blink { 0%, 100% {opacity:1;} 50% {opacity:0.2;} }
-
 .current-show { padding: 0 15px; font-size: 11px; font-weight: 700; display: flex; align-items: center; text-transform: uppercase; }
 .btn-toggle-small { cursor: pointer; margin-right: 12px; width: 14px; display: flex; justify-content: center; }
 .stop-square-small { width: 10px; height: 10px; background: #fff; }
 
-/* ================= HERO (TENGAH) ================= */
+/* ================= HERO (FIXED ALIGNMENT) ================= */
 .hero{ position:relative; height:100vh; background:url(https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg) center/cover; display:flex; align-items:flex-end; padding:60px; filter: grayscale(100%); }
 .overlay{ position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,1) 5%, rgba(0,0,0,0.2)); }
 
-.hero-content{ position:relative; margin-bottom: 80px; max-width: 500px; }
-.hero h2{ font-size: 80px; font-weight: 700; line-height: 0.75; letter-spacing: -3px; text-transform: uppercase; margin-bottom: 5px; }
-.hero h2 span { text-transform: none; display: block; }
+.hero-content { 
+    position: relative; 
+    margin-bottom: 80px; 
+    max-width: 500px;
+    text-align: left; /* Memastikan semua rata kiri */
+}
 
-.worldwide-label { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-top: 0; opacity: 0.9; }
+.hero h2 { 
+    font-size: 85px; 
+    font-weight: 800; 
+    line-height: 0.8; /* Menempelkan RAT dan RADIO */
+    letter-spacing: -4px; 
+    text-transform: uppercase; 
+    margin-bottom: 10px; /* Jarak ke Worldwide */
+}
+
+.worldwide-label { 
+    font-size: 16px; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    letter-spacing: -0.5px;
+    margin-top: 0;
+    display: block;
+}
 
 .hero-description { 
-    margin-top: 25px; /* Jarak agak dijauhkan dari worldwide */
+    margin-top: 30px; 
     font-size: 13px; 
     line-height: 1.6; 
     opacity: 0.6; 
     font-weight: 400;
     max-width: 420px;
+    -webkit-user-select: text; 
+    user-select: text; /* Biar deskripsi bisa di copy kalau perlu */
 }
 
-/* ================= PLAYER FIXED ================= */
-.player-fixed {
-  position: fixed; bottom: 0; width: 100%; height: 55px; background: #fff; color: #000;
-  display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #000; z-index: 1000;
-  transition: transform 0.4s ease-in-out, opacity 0.3s;
-}
-
+/* ================= PLAYER FIXED (Tetap Aman) ================= */
+.player-fixed { position: fixed; bottom: 0; width: 100%; height: 55px; background: #fff; color: #000; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #000; z-index: 1000; transition: transform 0.4s ease-in-out, opacity 0.3s; }
 .player-left { display: flex; align-items: center; padding-left: 20px; gap: 15px; }
 .btn-toggle-bottom { cursor: pointer; font-size: 22px; width: 25px; display: flex; justify-content: center; }
 .stop-square-bottom { width: 14px; height: 14px; background: #000; }
-
 .track-box { display: flex; align-items: center; gap: 12px; }
 .track-box img { width: 38px; height: 38px; border: 1px solid #000; filter: grayscale(100%); }
 .title-info b { font-size: 12.5px; display: block; text-transform: uppercase; font-weight: 700; line-height: 1.2; }
 .title-info span { font-size: 10px; opacity: 0.8; font-weight: 400; }
-
 .player-right { display: flex; align-items: center; height: 100%; }
 .icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
 .icon-group span { cursor: pointer; color: #000; display: flex; align-items: center; font-weight: 700; transition: 0.2s; }
 .icon-group span:hover { opacity: 0.4; }
-
 .skip-btn { font-size: 13px !important; } 
 .sc-icon { font-size: 24px !important; }
 #like-btn { font-size: 22px; } 
 .share-icon { font-size: 18px; filter: brightness(0); opacity: 1 !important; }
 .menu-icon { font-size: 18px; }
-
 .divider { width: 1px; height: 100%; background: #000; opacity: 0.1; } 
-
-.up-next-btn {
-  display: flex; align-items: center; gap: 6px; padding: 0 20px;
-  font-weight: 700; font-size: 11px; color: #000; text-decoration: none; transition: 0.2s;
-}
-.up-next-btn:hover { opacity: 0.4; }
-.up-next-btn span { font-size: 11px; font-weight: 900; }
-
-.close-btn {
-  padding: 0 20px; font-size: 18px; font-weight: 400; cursor: pointer;
-  border-left: 1px solid #000; opacity: 0.3; height: 100%; display: flex; align-items: center;
-  transition: 0.3s;
-}
+.up-next-btn { display: flex; align-items: center; gap: 6px; padding: 0 20px; font-weight: 700; font-size: 11px; color: #000; text-decoration: none; }
+.close-btn { padding: 0 20px; font-size: 18px; font-weight: 400; cursor: pointer; border-left: 1px solid #000; opacity: 0.3; height: 100%; display: flex; align-items: center; transition: 0.3s; }
 .close-btn:hover { opacity: 1; }
 </style>
 </head>
@@ -126,7 +119,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
       </div>
       <div class="search-container">
         <div class="search-wrapper">
-          <input type="text" class="search-input" placeholder="">
+          <input type="text" class="search-input">
           <div class="search-icon" title="Search"></div>
         </div>
       </div>
@@ -144,8 +137,8 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 <div class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-        <h2>RAT<span>Radio</span></h2>
-        <p class="worldwide-label">Worldwide</p>
+        <h2>RAT<br>RADIO</h2>
+        <p class="worldwide-label">WORLDWIDE</p>
         <p class="hero-description">
             RAT Radio is a global broadcasting platform and digital archive dedicated to the art of selection. We operate as a fluid space for musical exploration, connecting listeners with the most compelling sounds from across the spectrum.
         </p>
@@ -157,13 +150,9 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="btn-toggle-bottom" id="toggle-bottom" title="Play/Stop">▶</div>
     <div class="track-box">
       <img src="https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg" alt="Cover">
-      <div class="title-info">
-        <b id="player-title">In The Sewer</b>
-        <span id="player-sub">Dirty Cat — 19 Feb 2026</span>
-      </div>
+      <div class="title-info"><b id="player-title">In The Sewer</b><span id="player-sub">Dirty Cat — 19 Feb 2026</span></div>
     </div>
   </div>
-
   <div class="player-right">
     <div class="icon-group">
       <span class="skip-btn" title="Rewind 30s">⟲ 30</span>
@@ -187,46 +176,34 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   const playerBar = document.getElementById('main-player');
   const playerTitle = document.getElementById('player-title');
   const playerSub = document.getElementById('player-sub');
-  
-  let isPlaying = false;
-  let isClosed = false;
+  let isPlaying = false; let isClosed = false;
 
   function handleToggle() {
     isPlaying = !isPlaying;
     if (isClosed && isPlaying) {
-      isClosed = false;
-      playerBar.style.display = 'flex';
+      isClosed = false; playerBar.style.display = 'flex';
       setTimeout(() => { playerBar.style.transform = 'translateY(0)'; }, 10);
-      playerTitle.innerText = "BASEMENT SESSIONS";
-      playerSub.innerText = "DIRTY CAT — LIVE NOW";
+      playerTitle.innerText = "BASEMENT SESSIONS"; playerSub.innerText = "DIRTY CAT — LIVE NOW";
     }
     const stopS = '<div class="stop-square-small"></div>';
     const stopB = '<div class="stop-square-bottom"></div>';
     smallBtn.innerHTML = isPlaying ? stopS : '▶';
     bottomBtn.innerHTML = isPlaying ? stopB : '▶';
   }
-
   smallBtn.addEventListener('click', handleToggle);
   bottomBtn.addEventListener('click', handleToggle);
 
   const likeBtn = document.getElementById('like-btn');
   let isLiked = false;
   likeBtn.addEventListener('click', function() {
-    isLiked = !isLiked;
-    this.innerHTML = isLiked ? '♥' : '♡';
+    isLiked = !isLiked; this.innerHTML = isLiked ? '♥' : '♡';
     this.title = isLiked ? "Unlike" : "Like";
   });
 
   const closeBtn = document.getElementById('close-player');
   closeBtn.addEventListener('click', function() {
-    isClosed = true;
-    playerBar.style.transform = 'translateY(100%)';
-    setTimeout(() => {
-        playerBar.style.display = 'none';
-        isPlaying = false;
-        smallBtn.innerHTML = '▶';
-        bottomBtn.innerHTML = '▶';
-    }, 400);
+    isClosed = true; playerBar.style.transform = 'translateY(100%)';
+    setTimeout(() => { playerBar.style.display = 'none'; isPlaying = false; smallBtn.innerHTML = '▶'; bottomBtn.innerHTML = '▶'; }, 400);
   });
 </script>
 
