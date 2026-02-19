@@ -95,8 +95,8 @@ body{
 }
 
 .play-btn{
-  width:45px;
-  height:45px;
+  width:50px;
+  height:50px;
   background:#fff;
   color:#000;
   display:flex;
@@ -104,6 +104,12 @@ body{
   justify-content:center;
   margin-bottom:20px;
   cursor:pointer;
+  font-size:18px;
+  transition:0.2s;
+}
+
+.play-btn:hover{
+  transform:scale(1.1);
 }
 
 .hero h2{
@@ -158,7 +164,7 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:0 30px;
+  padding:0 40px;
   border-top:1px solid #ccc;
 }
 
@@ -169,21 +175,26 @@ body{
 }
 
 .player-left img{
-  width:50px;
-  height:50px;
+  width:55px;
+  height:55px;
   object-fit:cover;
 }
 
 .play{
   background:none;
   border:none;
-  font-size:22px;
+  font-size:24px;
   cursor:pointer;
+  transition:0.2s;
+}
+
+.play:hover{
+  transform:scale(1.15);
 }
 
 .track-info .title{
   font-weight:700;
-  font-size:14px;
+  font-size:15px;
 }
 
 .track-info .date{
@@ -194,22 +205,40 @@ body{
 .player-right{
   display:flex;
   align-items:center;
-  gap:20px;
-  font-size:14px;
+  gap:30px;
 }
 
 .icon{
+  font-size:22px;
   cursor:pointer;
+  transition:0.2s ease;
+}
+
+.icon:hover{
+  transform:scale(1.2);
+  opacity:0.7;
 }
 
 .upnext{
   font-weight:700;
+  font-size:16px;
+  letter-spacing:0.5px;
   cursor:pointer;
+  transition:0.2s;
+}
+
+.upnext:hover{
+  opacity:0.7;
 }
 
 .close{
-  font-size:18px;
+  font-size:20px;
   cursor:pointer;
+  transition:0.2s;
+}
+
+.close:hover{
+  transform:scale(1.2);
 }
 </style>
 </head>
