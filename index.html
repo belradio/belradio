@@ -38,7 +38,6 @@ body{
   padding: 0 15px;
 }
 
-/* LOGO - INTERAKTIF */
 .logo-main {
   display: flex;
   align-items: center;
@@ -49,7 +48,6 @@ body{
 .logo-main img {
   height: 46px; 
   width: auto;
-  display: block;
   transition: transform 0.3s ease;
 }
 
@@ -60,12 +58,10 @@ body{
 .nav-right-side {
   display: flex;
   align-items: center;
-  height: 100%;
 }
 
 .menu-links {
   display: flex;
-  height: 100%;
 }
 
 .menu-links a {
@@ -75,10 +71,7 @@ body{
   font-weight: 700;
   text-transform: uppercase;
   padding: 0 15px;
-  display: flex;
-  align-items: center;
   letter-spacing: 0.5px;
-  transition: 0.2s;
 }
 
 .menu-links a:hover {
@@ -86,7 +79,6 @@ body{
   color: #000;
 }
 
-/* SEARCH - INTERAKTIF */
 .search-container {
   display: flex;
   align-items: center;
@@ -96,12 +88,6 @@ body{
   border-left: 1px solid #fff;
 }
 
-.search-wrapper {
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-}
-
 .search-input {
   background: transparent;
   border: none;
@@ -109,7 +95,6 @@ body{
   color: #fff;
   font-size: 12px;
   width: 80px;
-  padding: 0;
   outline: none;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -124,8 +109,8 @@ body{
   border: 1.5px solid #fff;
   border-radius: 50%;
   position: relative;
+  margin-left: 8px;
   margin-bottom: 2px;
-  flex-shrink: 0;
 }
 
 .search-icon::after {
@@ -162,7 +147,7 @@ body{
 }
 
 .live-label span {
-  color: red;
+  color: red; /* Dot Live tetap merah sebagai aksen */
   font-size: 12px;
   animation: blink 1.5s infinite;
 }
@@ -179,18 +164,30 @@ body{
   align-items: center;
 }
 
-/* TOMBOL TOGGLE KECIL (UKURAN DIKALIBRASI) */
+/* TOMBOL TOGGLE KECIL (HITAM PUTIH) */
 .btn-toggle-small {
   cursor: pointer;
   margin-right: 12px;
-  font-size: 14px; /* Sedikit lebih besar agar kotak terlihat solid */
-  width: 18px;
+  width: 14px;
+  height: 14px;
   display: flex;
+  align-items: center;
   justify-content: center;
   user-select: none;
+  transition: color 0.2s;
 }
 
-/* ================= HERO & PLAYER ================= */
+.btn-toggle-small:hover {
+  color: #aaa; /* Sedikit abu-abu pas hover biar kelihatan aktif */
+}
+
+.stop-square-small {
+  width: 11px;
+  height: 11px;
+  background: #fff;
+}
+
+/* ================= HERO ================= */
 .hero{
   position:relative;
   height:100vh;
@@ -212,7 +209,7 @@ body{
   margin-bottom: 80px; 
 }
 
-/* TOMBOL TOGGLE BESAR (UKURAN DIKALIBRASI) */
+/* TOMBOL TOGGLE BESAR (MONOCHROME) */
 .btn-toggle-main {
   width: 60px;
   height: 60px;
@@ -221,14 +218,30 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px; /* Diperbesar agar kotak (■) sama dominannya dengan (▶) */
   cursor: pointer;
   margin-bottom: 20px;
-  transition: 0.2s;
+  transition: all 0.2s ease;
   user-select: none;
 }
 
-.btn-toggle-main:hover { transform: scale(1.1); background: #ff0000; color: #fff; }
+/* Efek Invert Hitam Putih pas Hover */
+.btn-toggle-main:hover { 
+  transform: scale(1.1); 
+  background: #000; 
+  color: #fff; 
+  border: 1px solid #fff;
+}
+
+.stop-square-main {
+  width: 24px;
+  height: 24px;
+  background: #000; /* Hitam saat tombol putih */
+  transition: background 0.2s;
+}
+
+.btn-toggle-main:hover .stop-square-main {
+  background: #fff; /* Jadi putih saat tombol hitam */
+}
 
 .hero h2{
   font-size: 80px; 
@@ -239,12 +252,9 @@ body{
   text-transform: uppercase;
 }
 
-.hero h2 span {
-    text-transform: none;
-}
-
 .hero p { font-size: 13px; opacity: 0.7; max-width: 350px; }
 
+/* ================= PLAYER FIXED ================= */
 .player-fixed {
   position: fixed;
   bottom: 0;
@@ -257,7 +267,6 @@ body{
   justify-content: space-between;
   padding: 0 20px;
   border-top: 1px solid #000;
-  z-index: 1000;
 }
 
 .track-box { display: flex; align-items: center; gap: 12px; }
@@ -272,10 +281,7 @@ body{
 
 <div class="header-container">
   <div class="nav-top">
-    <div class="logo-main">
-      <img src="New%20Project%20(3).png" alt="RAT Radio">
-    </div>
-    
+    <div class="logo-main"><img src="New%20Project%20(3).png" alt="RAT Radio"></div>
     <div class="nav-right-side">
       <div class="menu-links">
         <a href="#">Latest</a>
@@ -283,10 +289,9 @@ body{
         <a href="#">Shop</a>
         <a href="#">About</a>
       </div>
-      
       <div class="search-container">
         <div class="search-wrapper">
-          <input type="text" class="search-input" placeholder="">
+          <input type="text" class="search-input" id="search-bar" placeholder="">
           <div class="search-icon"></div>
         </div>
       </div>
@@ -296,7 +301,7 @@ body{
   <div class="nav-live">
     <div class="live-label">Live Now <span>●</span></div>
     <div class="current-show">
-      <span class="btn-toggle-small" id="toggle-small">▶</span> 
+      <div class="btn-toggle-small" id="toggle-small">▶</div> 
       BASEMENT SESSIONS W/ DIRTY CAT
     </div>
   </div>
@@ -305,7 +310,7 @@ body{
 <div class="hero">
   <div class="overlay"></div>
   <div class="hero-content">
-    <div class="btn-toggle-main" id="toggle-main">▶</div>
+    <div class="btn-toggle-main" id="toggle-main" style="font-size: 28px;">▶</div>
     <h2>RAT<br><span style="text-transform: none;">Radio</span></h2>
     <p>Worldwide</p>
   </div>
@@ -320,8 +325,8 @@ body{
     </div>
   </div>
   <div class="player-right-menu">
-    <div style="cursor: pointer;">Up Next ↑</div>
-    <div style="cursor: pointer;">✕</div>
+    <div style="cursor:pointer">Up Next ↑</div>
+    <div style="cursor:pointer">✕</div>
   </div>
 </div>
 
@@ -333,16 +338,11 @@ body{
   function handleToggle() {
     isPlaying = !isPlaying;
     if (isPlaying) {
-      smallBtn.innerText = '■';
-      mainBtn.innerText = '■';
-      // Menambah sedikit koreksi font-size saat jadi kotak agar terlihat pas
-      smallBtn.style.fontSize = "13px";
-      mainBtn.style.fontSize = "26px";
+      smallBtn.innerHTML = '<div class="stop-square-small"></div>';
+      mainBtn.innerHTML = '<div class="stop-square-main"></div>';
     } else {
-      smallBtn.innerText = '▶';
-      mainBtn.innerText = '▶';
-      smallBtn.style.fontSize = "14px";
-      mainBtn.style.fontSize = "28px";
+      smallBtn.innerHTML = '▶';
+      mainBtn.innerHTML = '▶';
     }
   }
 
