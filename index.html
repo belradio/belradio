@@ -4,35 +4,85 @@
   <meta charset="UTF-8">
   <title>BEL Radio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
       height: 100vh;
-      background: #000;
-      color: #fff;
+      background: linear-gradient(180deg, #000000, #111111);
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: Helvetica Light, sans-serif;
       text-align: center;
     }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
+
+    .container {
+      max-width: 500px;
     }
-    p {
+
+    h1 {
+      font-size: 60px;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
       opacity: 0.6;
+      margin-bottom: 40px;
+    }
+
+    button {
+      padding: 15px 40px;
+      font-size: 18px;
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 50px;
+    }
+
+    button:hover {
+      background: white;
+      color: black;
+    }
+
+    .status {
+      margin-top: 20px;
+      font-size: 14px;
+      opacity: 0.5;
     }
   </style>
 </head>
+
 <body>
 
-  <div>
+  <div class="container">
     <h1>BEL</h1>
-    <p>Break Every Layer</p>
-    <p>WORLDWIDE</p>
+    <div class="tagline">Beyond Everyday Limits</div>
+
+    <audio id="radio" src=""></audio>
+
+    <button onclick="playRadio()">PLAY</button>
+
+    <div class="status" id="status">Stream offline</div>
   </div>
+
+  <script>
+    function playRadio() {
+      const radio = document.getElementById("radio");
+      const status = document.getElementById("status");
+
+      if (radio.src === "") {
+        status.innerText = "Stream belum terhubung";
+      } else {
+        radio.play();
+        status.innerText = "Now Streaming...";
+      }
+    }
+  </script>
 
 </body>
 </html>
