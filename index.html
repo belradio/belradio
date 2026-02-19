@@ -27,10 +27,10 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .search-icon { width: 13px; height: 13px; border: 1.5px solid #fff; border-radius: 50%; position: relative; }
 .search-icon::after { content: ""; position: absolute; width: 1.5px; height: 5px; background: #fff; bottom: -3px; right: -2px; transform: rotate(-45deg); }
 
-/* ================= NAV LIVE (RED DOT RETURNED) ================= */
+/* ================= NAV LIVE ================= */
 .nav-live { height: 32px; background: #000; display: flex; align-items: center; border-bottom: 1px solid #fff; }
 .live-label { background: #fff; color: #000; height: 100%; padding: 0 12px; font-size: 10px; font-weight: 700; display: flex; align-items: center; gap: 6px; text-transform: uppercase; }
-.live-label span { color: #ff0000; font-size: 14px; animation: blink 1.5s infinite; } /* MERAH KEMBALI */
+.live-label span { color: #ff0000; font-size: 14px; animation: blink 1.5s infinite; } 
 @keyframes blink { 0%, 100% {opacity:1;} 50% {opacity:0.2;} }
 .current-show { padding: 0 15px; font-size: 11px; font-weight: 700; display: flex; align-items: center; text-transform: uppercase; }
 
@@ -44,40 +44,42 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .hero h2{ font-size: 80px; font-weight: 700; line-height: 0.8; letter-spacing: -3px; text-transform: uppercase; }
 .hero p { font-size: 13px; opacity: 0.7; font-weight: 400; }
 
-/* ================= PLAYER FIXED ================= */
+/* ================= PLAYER FIXED (MODIFIED) ================= */
 .player-fixed {
-  position: fixed; bottom: 0; width: 100%; height: 55px; background: #fff; color: #000;
+  position: fixed; bottom: 0; width: 100%; height: 60px; background: #fff; color: #000;
   display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #000; z-index: 1000;
 }
 
 .player-left { display: flex; align-items: center; padding-left: 20px; gap: 15px; }
-.btn-toggle-bottom { cursor: pointer; font-size: 20px; width: 25px; display: flex; justify-content: center; transition: 0.2s; }
-.btn-toggle-bottom:hover { opacity: 0.5; }
-.stop-square-bottom { width: 14px; height: 14px; background: #000; }
+.btn-toggle-bottom { cursor: pointer; font-size: 24px; width: 30px; display: flex; justify-content: center; transition: 0.2s; }
+.stop-square-bottom { width: 16px; height: 16px; background: #000; }
 
 .track-box { display: flex; align-items: center; gap: 12px; }
-.track-box img { width: 38px; height: 38px; border: 1px solid #000; filter: grayscale(100%); }
-.title-info b { font-size: 11px; display: block; text-transform: uppercase; font-weight: 700; }
-.title-info span { font-size: 9px; opacity: 0.7; font-weight: 400; }
+.track-box img { width: 42px; height: 42px; border: 1px solid #000; filter: grayscale(100%); }
+.title-info b { font-size: 12px; display: block; text-transform: uppercase; font-weight: 700; }
+.title-info span { font-size: 10px; opacity: 0.7; font-weight: 400; }
 
+/* JAJARAN KANAN: LEBIH GEDE & SHARE HITAM */
 .player-right { display: flex; align-items: center; height: 100%; }
-.icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
-.icon-group span { cursor: pointer; font-size: 14px; font-weight: 700; display: flex; align-items: center; transition: 0.2s; }
+.icon-group { display: flex; align-items: center; gap: 25px; padding: 0 25px; }
+.icon-group span { cursor: pointer; font-size: 18px; font-weight: 700; display: flex; align-items: center; transition: 0.2s; color: #000; }
 .icon-group span:hover { opacity: 0.5; }
 
-.divider { width: 1px; height: 100%; background: #ddd; } 
+.divider { width: 1px; height: 100%; background: #000; opacity: 0.2; } 
 
 .up-next-btn {
-  display: flex; align-items: center; gap: 8px; padding: 0 20px;
-  font-weight: 700; font-size: 11px; color: #000; text-decoration: none; transition: 0.2s;
+  display: flex; align-items: center; gap: 10px; padding: 0 25px;
+  font-weight: 700; font-size: 12px; color: #000; text-decoration: none; transition: 0.2s;
 }
-.up-next-btn:hover { opacity: 0.5; }
 
 .close-btn {
-  padding: 0 20px; font-size: 16px; font-weight: 700; cursor: pointer;
-  border-left: 1px solid #ddd; height: 100%; display: flex; align-items: center; transition: 0.2s;
+  padding: 0 25px; font-size: 20px; font-weight: 700; cursor: pointer;
+  border-left: 1px solid #000; opacity: 0.2; height: 100%; display: flex; align-items: center; transition: 0.2s;
 }
-.close-btn:hover { opacity: 0.5; }
+.close-btn:hover { opacity: 1; }
+
+/* Style tambahan buat Like pas aktif */
+#like-btn.active { color: #000; }
 </style>
 </head>
 <body>
@@ -111,18 +113,18 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="icon-group">
       <span title="Rewind 30s">⟲ 30</span>
       <span title="Forward 30s">⟳ 30</span>
-      <span title="SoundCloud" style="font-size: 18px;">☁</span>
+      <span title="SoundCloud" style="font-size: 22px;">☁</span>
     </div>
     
     <div class="divider"></div>
 
     <div class="icon-group">
-      <span title="Like">♡</span>
+      <span id="like-btn" title="Like">♡</span>
       <span title="Share">🔗</span>
       <span title="Menu">☰</span>
     </div>
 
-    <a href="#" class="up-next-btn">UP NEXT ︿</a>
+    <a href="#" class="up-next-btn">UP NEXT ↑</a>
 
     <div class="close-btn">✕</div>
   </div>
@@ -146,6 +148,17 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
   smallBtn.addEventListener('click', handleToggle);
   bottomBtn.addEventListener('click', handleToggle);
+
+  // INTERAKSI LIKE NGEBLOK
+  const likeBtn = document.getElementById('like-btn');
+  likeBtn.addEventListener('click', function() {
+    this.classList.toggle('active');
+    if (this.classList.contains('active')) {
+      this.innerHTML = '♥'; // Ngeblok warna hitam penuh
+    } else {
+      this.innerHTML = '♡'; // Balik ke outline
+    }
+  });
 </script>
 
 </body>
