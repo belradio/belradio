@@ -44,7 +44,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .hero h2{ font-size: 80px; font-weight: 700; line-height: 0.8; letter-spacing: -3px; text-transform: uppercase; }
 .hero p { font-size: 13px; opacity: 0.7; font-weight: 400; }
 
-/* ================= PLAYER FIXED (RE-ADJUSTED) ================= */
+/* ================= PLAYER FIXED ================= */
 .player-fixed {
   position: fixed; bottom: 0; width: 100%; height: 55px; background: #fff; color: #000;
   display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #000; z-index: 1000;
@@ -59,11 +59,17 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .title-info b { font-size: 11px; display: block; text-transform: uppercase; font-weight: 700; }
 .title-info span { font-size: 9px; opacity: 0.7; font-weight: 400; }
 
-/* JAJARAN KANAN: DIKECILIN DIKIT & PANAH TEBAL */
 .player-right { display: flex; align-items: center; height: 100%; }
 .icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
 .icon-group span { cursor: pointer; font-size: 16px; font-weight: 700; display: flex; align-items: center; transition: 0.2s; color: #000; }
 .icon-group span:hover { opacity: 0.5; }
+
+/* Share & Ikon lain dipastikan hitam */
+.share-icon { color: #000 !important; opacity: 1 !important; }
+
+/* Interaksi Like: Warna berubah tapi bentuk tetep outline */
+#like-btn { opacity: 0.4; transition: 0.3s; }
+#like-btn.active { opacity: 1; font-weight: 900; }
 
 .divider { width: 1px; height: 100%; background: #000; opacity: 0.1; } 
 
@@ -71,18 +77,13 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   display: flex; align-items: center; gap: 6px; padding: 0 20px;
   font-weight: 700; font-size: 11px; color: #000; text-decoration: none; transition: 0.2s;
 }
-.up-next-btn:hover { opacity: 0.5; }
-.up-next-btn span { font-size: 10px; margin-top: -2px; } /* Kontrol ukuran panah ▲ */
+.up-next-btn span { font-size: 10px; }
 
 .close-btn {
   padding: 0 20px; font-size: 18px; font-weight: 700; cursor: pointer;
-  border-left: 1px solid #000; border-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2), transparent) 1;
-  height: 100%; display: flex; align-items: center; transition: 0.2s;
+  border-left: 1px solid #000; border-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1), transparent) 1;
+  height: 100%; display: flex; align-items: center;
 }
-.close-btn:hover { opacity: 0.5; }
-
-/* Like Aktif */
-#like-btn.active { color: #000; }
 </style>
 </head>
 <body>
@@ -123,7 +124,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
     <div class="icon-group">
       <span id="like-btn" title="Like">♡</span>
-      <span title="Share">🔗</span>
+      <span title="Share" class="share-icon">🔗</span>
       <span title="Menu">☰</span>
     </div>
 
@@ -155,11 +156,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   const likeBtn = document.getElementById('like-btn');
   likeBtn.addEventListener('click', function() {
     this.classList.toggle('active');
-    if (this.classList.contains('active')) {
-      this.innerHTML = '♥'; 
-    } else {
-      this.innerHTML = '♡'; 
-    }
   });
 </script>
 
