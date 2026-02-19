@@ -44,41 +44,44 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .hero h2{ font-size: 80px; font-weight: 700; line-height: 0.8; letter-spacing: -3px; text-transform: uppercase; }
 .hero p { font-size: 13px; opacity: 0.7; font-weight: 400; }
 
-/* ================= PLAYER FIXED (MODIFIED) ================= */
+/* ================= PLAYER FIXED (RE-ADJUSTED) ================= */
 .player-fixed {
-  position: fixed; bottom: 0; width: 100%; height: 60px; background: #fff; color: #000;
+  position: fixed; bottom: 0; width: 100%; height: 55px; background: #fff; color: #000;
   display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #000; z-index: 1000;
 }
 
 .player-left { display: flex; align-items: center; padding-left: 20px; gap: 15px; }
-.btn-toggle-bottom { cursor: pointer; font-size: 24px; width: 30px; display: flex; justify-content: center; transition: 0.2s; }
-.stop-square-bottom { width: 16px; height: 16px; background: #000; }
+.btn-toggle-bottom { cursor: pointer; font-size: 22px; width: 25px; display: flex; justify-content: center; transition: 0.2s; }
+.stop-square-bottom { width: 14px; height: 14px; background: #000; }
 
 .track-box { display: flex; align-items: center; gap: 12px; }
-.track-box img { width: 42px; height: 42px; border: 1px solid #000; filter: grayscale(100%); }
-.title-info b { font-size: 12px; display: block; text-transform: uppercase; font-weight: 700; }
-.title-info span { font-size: 10px; opacity: 0.7; font-weight: 400; }
+.track-box img { width: 38px; height: 38px; border: 1px solid #000; filter: grayscale(100%); }
+.title-info b { font-size: 11px; display: block; text-transform: uppercase; font-weight: 700; }
+.title-info span { font-size: 9px; opacity: 0.7; font-weight: 400; }
 
-/* JAJARAN KANAN: LEBIH GEDE & SHARE HITAM */
+/* JAJARAN KANAN: DIKECILIN DIKIT & PANAH TEBAL */
 .player-right { display: flex; align-items: center; height: 100%; }
-.icon-group { display: flex; align-items: center; gap: 25px; padding: 0 25px; }
-.icon-group span { cursor: pointer; font-size: 18px; font-weight: 700; display: flex; align-items: center; transition: 0.2s; color: #000; }
+.icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
+.icon-group span { cursor: pointer; font-size: 16px; font-weight: 700; display: flex; align-items: center; transition: 0.2s; color: #000; }
 .icon-group span:hover { opacity: 0.5; }
 
-.divider { width: 1px; height: 100%; background: #000; opacity: 0.2; } 
+.divider { width: 1px; height: 100%; background: #000; opacity: 0.1; } 
 
 .up-next-btn {
-  display: flex; align-items: center; gap: 10px; padding: 0 25px;
-  font-weight: 700; font-size: 12px; color: #000; text-decoration: none; transition: 0.2s;
+  display: flex; align-items: center; gap: 6px; padding: 0 20px;
+  font-weight: 700; font-size: 11px; color: #000; text-decoration: none; transition: 0.2s;
 }
+.up-next-btn:hover { opacity: 0.5; }
+.up-next-btn span { font-size: 10px; margin-top: -2px; } /* Kontrol ukuran panah ▲ */
 
 .close-btn {
-  padding: 0 25px; font-size: 20px; font-weight: 700; cursor: pointer;
-  border-left: 1px solid #000; opacity: 0.2; height: 100%; display: flex; align-items: center; transition: 0.2s;
+  padding: 0 20px; font-size: 18px; font-weight: 700; cursor: pointer;
+  border-left: 1px solid #000; border-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2), transparent) 1;
+  height: 100%; display: flex; align-items: center; transition: 0.2s;
 }
-.close-btn:hover { opacity: 1; }
+.close-btn:hover { opacity: 0.5; }
 
-/* Style tambahan buat Like pas aktif */
+/* Like Aktif */
 #like-btn.active { color: #000; }
 </style>
 </head>
@@ -113,7 +116,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="icon-group">
       <span title="Rewind 30s">⟲ 30</span>
       <span title="Forward 30s">⟳ 30</span>
-      <span title="SoundCloud" style="font-size: 22px;">☁</span>
+      <span title="SoundCloud" style="font-size: 20px;">☁</span>
     </div>
     
     <div class="divider"></div>
@@ -124,7 +127,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
       <span title="Menu">☰</span>
     </div>
 
-    <a href="#" class="up-next-btn">UP NEXT ↑</a>
+    <a href="#" class="up-next-btn">UP NEXT <span>▲</span></a>
 
     <div class="close-btn">✕</div>
   </div>
@@ -149,14 +152,13 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   smallBtn.addEventListener('click', handleToggle);
   bottomBtn.addEventListener('click', handleToggle);
 
-  // INTERAKSI LIKE NGEBLOK
   const likeBtn = document.getElementById('like-btn');
   likeBtn.addEventListener('click', function() {
     this.classList.toggle('active');
     if (this.classList.contains('active')) {
-      this.innerHTML = '♥'; // Ngeblok warna hitam penuh
+      this.innerHTML = '♥'; 
     } else {
-      this.innerHTML = '♡'; // Balik ke outline
+      this.innerHTML = '♡'; 
     }
   });
 </script>
