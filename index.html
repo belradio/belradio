@@ -13,18 +13,32 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 /* ================= HEADER CONTAINER ================= */
 .header-container { position: fixed; top: 0; width: 100%; z-index: 1000; }
 .nav-top { height: 48px; background: #000; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #fff; padding: 0 15px; }
-.logo-main img { height: 46px; cursor: pointer; }
+
+/* LOGO INTERAKTIF */
+.logo-main img { height: 46px; cursor: pointer; transition: 0.3s; }
+.logo-main:hover img { transform: scale(1.05); }
 
 .nav-right-side { display: flex; align-items: center; }
-.menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; }
+
+/* MENU INTERAKTIF */
+.menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; transition: 0.2s; }
+.menu-links a:hover { color: #888; }
+
+/* SEARCH CONTAINER (KEMBALI HADIR) */
+.search-container { display: flex; align-items: center; padding-left: 15px; margin-left: 5px; height: 24px; border-left: 1px solid #fff; }
+.search-wrapper { display: flex; align-items: center; gap: 8px; }
+.search-input { background: transparent; border: none; border-bottom: 1px solid #fff; color: #fff; font-size: 12px; width: 80px; outline: none; transition: 0.4s; }
+.search-input:focus { width: 140px; }
+.search-icon { width: 13px; height: 13px; border: 1.5px solid #fff; border-radius: 50%; position: relative; cursor: pointer; }
+.search-icon::after { content: ""; position: absolute; width: 1.5px; height: 5px; background: #fff; bottom: -3px; right: -2px; transform: rotate(-45deg); }
 
 /* ================= NAV LIVE ================= */
 .nav-live { height: 32px; background: #000; display: flex; align-items: center; border-bottom: 1px solid #fff; }
 .live-label { background: #fff; color: #000; height: 100%; padding: 0 12px; font-size: 10px; font-weight: 700; display: flex; align-items: center; gap: 6px; text-transform: uppercase; }
 .live-label span { color: #ff0000; font-size: 14px; animation: blink 1.5s infinite; } 
 @keyframes blink { 0%, 100% {opacity:1;} 50% {opacity:0.2;} }
-.current-show { padding: 0 15px; font-size: 11px; font-weight: 700; display: flex; align-items: center; text-transform: uppercase; }
 
+.current-show { padding: 0 15px; font-size: 11px; font-weight: 700; display: flex; align-items: center; text-transform: uppercase; }
 .btn-toggle-small { cursor: pointer; margin-right: 12px; width: 14px; display: flex; justify-content: center; }
 .stop-square-small { width: 10px; height: 10px; background: #fff; }
 
@@ -50,7 +64,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .title-info b { font-size: 11px; display: block; text-transform: uppercase; font-weight: 700; }
 .title-info span { font-size: 9px; opacity: 0.7; }
 
-/* JAJARAN KANAN: UKURAN SERAGAM SESUAI SHARE */
+/* JAJARAN KANAN: SEMUA DISAMAKAN KE SKALA SHARE */
 .player-right { display: flex; align-items: center; height: 100%; }
 .icon-group { display: flex; align-items: center; gap: 18px; padding: 0 18px; }
 
@@ -59,31 +73,29 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     color: #000; 
     display: flex; 
     align-items: center; 
-    font-size: 18px; /* Ukuran dasar untuk menyamakan skala */
+    font-size: 18px; /* Ukuran dasar rata-rata ikon share */
     font-weight: 700;
+    transition: 0.2s;
 }
+.icon-group span:hover { opacity: 0.5; }
 
-/* KHUSUS REWIND/FORWARD (Font menu Latest) */
-.skip-btn { font-size: 11px !important; text-transform: uppercase; }
+/* Angka 30: Bold & Font Navigasi */
+.skip-btn { font-size: 11px !important; letter-spacing: 0.5px; }
 
-/* KHUSUS SHARE HITAM PEKAT */
+/* Khusus Share: Hitam Pekat No Abu */
 .share-icon { 
     filter: brightness(0); 
-    opacity: 1 !important;
+    opacity: 1 !important; 
+    font-size: 17px !important; /* Dikecilkan dikit biar setara visualnya */
 }
-
-/* SOUNDCLOUD DISESUAIKAN VISUALNYA */
-.sc-icon { font-size: 22px !important; }
-
-/* LIKE ICON */
-#like-btn { font-size: 19px; }
 
 .divider { width: 1px; height: 100%; background: #000; opacity: 0.1; } 
 
 .up-next-btn {
   display: flex; align-items: center; gap: 6px; padding: 0 20px;
-  font-weight: 700; font-size: 11px; color: #000; text-decoration: none;
+  font-weight: 700; font-size: 11px; color: #000; text-decoration: none; transition: 0.2s;
 }
+.up-next-btn:hover { opacity: 0.5; }
 .up-next-btn span { font-size: 10px; font-weight: 900; }
 
 .close-btn {
@@ -99,11 +111,20 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="logo-main"><img src="New%20Project%20(3).png" alt="RAT Radio"></div>
     <div class="nav-right-side">
       <div class="menu-links"><a href="#">Latest</a><a href="#">Explore</a><a href="#">Shop</a><a href="#">About</a></div>
+      <div class="search-container">
+        <div class="search-wrapper">
+          <input type="text" class="search-input" placeholder="">
+          <div class="search-icon"></div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="nav-live">
     <div class="live-label">Live Now <span>●</span></div>
-    <div class="current-show"><div class="btn-toggle-small" id="toggle-small">▶</div> BASEMENT SESSIONS W/ DIRTY CAT</div>
+    <div class="current-show">
+        <div class="btn-toggle-small" id="toggle-small">▶</div> 
+        BASEMENT SESSIONS W/ DIRTY CAT
+    </div>
   </div>
 </div>
 
@@ -122,7 +143,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="icon-group">
       <span class="skip-btn" title="Rewind 30s">⟲ 30</span>
       <span class="skip-btn" title="Forward 30s">⟳ 30</span>
-      <span class="sc-icon" title="SoundCloud">☁</span>
+      <span title="SoundCloud" style="font-size: 21px;">☁</span>
     </div>
     
     <div class="divider"></div>
@@ -140,24 +161,24 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 </div>
 
 <script>
-  // Sinkronisasi Tombol Play/Stop
+  // Interaksi Play/Stop Sinkron
   const smallBtn = document.getElementById('toggle-small');
   const bottomBtn = document.getElementById('toggle-bottom');
   let isPlaying = false;
 
   function handleToggle() {
     isPlaying = !isPlaying;
-    const stopContentSmall = '<div class="stop-square-small"></div>';
-    const stopContentBottom = '<div class="stop-square-bottom"></div>';
+    const stopContentS = '<div class="stop-square-small"></div>';
+    const stopContentB = '<div class="stop-square-bottom"></div>';
     
-    smallBtn.innerHTML = isPlaying ? stopContentSmall : '▶';
-    bottomBtn.innerHTML = isPlaying ? stopContentBottom : '▶';
+    smallBtn.innerHTML = isPlaying ? stopContentS : '▶';
+    bottomBtn.innerHTML = isPlaying ? stopContentB : '▶';
   }
 
   smallBtn.addEventListener('click', handleToggle);
   bottomBtn.addEventListener('click', handleToggle);
 
-  // Like Toggle: Line ke Blok
+  // Interaksi Like: Line ke Blok
   const likeBtn = document.getElementById('like-btn');
   let isLiked = false;
 
