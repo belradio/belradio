@@ -73,7 +73,7 @@ body{
   color: #000;
 }
 
-/* STYLE SEARCH TERBALIK (LINE DULU BARU ICON) */
+/* SEARCH AREA */
 .search-container {
   display: flex;
   align-items: center;
@@ -85,7 +85,7 @@ body{
 
 .search-wrapper {
   display: flex;
-  align-items: flex-end; /* Biar ikon & garis sejajar di bawah */
+  align-items: flex-end;
   gap: 8px;
 }
 
@@ -101,9 +101,7 @@ body{
   transition: width 0.3s ease;
 }
 
-.search-input:focus {
-  width: 140px;
-}
+.search-input:focus { width: 140px; }
 
 .search-icon {
   width: 13px;
@@ -111,7 +109,7 @@ body{
   border: 1.5px solid #fff;
   border-radius: 50%;
   position: relative;
-  margin-bottom: 2px; /* Penyesuaian biar sejajar garis */
+  margin-bottom: 2px;
   flex-shrink: 0;
 }
 
@@ -126,9 +124,10 @@ body{
   transform: rotate(-45deg);
 }
 
-/* Nav Bawah: Live Info */
+/* ================= NAV LIVE (DIPERBESAR) ================= */
+
 .nav-live {
-  height: 30px; 
+  height: 32px; /* Ditambah dikit biar teks yang gede nggak sesak */
   background: #000;
   display: flex;
   align-items: center;
@@ -158,9 +157,9 @@ body{
 
 .current-show {
   padding: 0 15px;
-  font-size: 10px;
+  font-size: 13px; /* Ukuran teks diperbesar dari 10px ke 13px */
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px; /* Jarak antar huruf ditambah agar lebih 'Radio' */
   text-transform: uppercase;
 }
 
