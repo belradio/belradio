@@ -58,34 +58,25 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
 /* JAJARAN KANAN */
 .player-right { display: flex; align-items: center; height: 100%; }
-.icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
+.icon-group { display: flex; align-items: center; gap: 18px; padding: 0 20px; }
 
-/* SET UKURAN ICON SHARE & LOVE BIAR SAMA */
 .icon-group span { 
     cursor: pointer; 
-    font-size: 20px; /* Ukuran diseragamkan */
+    font-size: 18px; 
+    font-weight: 700; /* Samakan bold-nya dengan menu atas */
+    color: #000; 
     display: flex; 
     align-items: center; 
-    color: #000;
-    transition: 0.2s;
 }
 
-/* KHUSUS ICON SHARE HITAM PEKAT */
-.share-icon { 
-    opacity: 1 !important;
-    font-weight: 900;
-}
+/* KHUSUS ANGKA 30: Font disamakan dengan menu Latest (font-size 11px) */
+.skip-btn { font-size: 11px !important; letter-spacing: 0.5px; }
 
-/* KHUSUS ICON LOVE */
-#like-btn { 
-    opacity: 0.2; /* Awalnya pudar (line doang) */
-    font-weight: 400;
-    font-size: 22px; /* Disesuaikan sedikit agar visual sizenya imbang dengan share */
-}
-#like-btn.active { 
-    opacity: 1; /* Pas diklik jadi Hitam Pekat */
-    font-weight: 900; /* Garis line jadi tebal/bold */
-}
+/* SHARE TETAP HITAM PEKAT */
+.share-icon { opacity: 1 !important; color: #000 !important; }
+
+/* LIKE LOGIC: LINE -> BLOCK */
+#like-btn { font-size: 20px; }
 
 .divider { width: 1px; height: 100%; background: #000; opacity: 0.1; } 
 
@@ -130,9 +121,9 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
   <div class="player-right">
     <div class="icon-group">
-      <span title="Rewind 30s">⟲ 30</span>
-      <span title="Forward 30s">⟳ 30</span>
-      <span title="SoundCloud" style="font-size: 20px;">☁</span>
+      <span class="skip-btn" title="Rewind 30s">⟲ 30</span>
+      <span class="skip-btn" title="Forward 30s">⟳ 30</span>
+      <span title="SoundCloud" style="font-size: 22px;">☁</span>
     </div>
     
     <div class="divider"></div>
@@ -150,6 +141,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 </div>
 
 <script>
+  // Play/Stop Toggle
   const smallBtn = document.getElementById('toggle-small');
   const bottomBtn = document.getElementById('toggle-bottom');
   let isPlaying = false;
@@ -168,10 +160,13 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   smallBtn.addEventListener('click', handleToggle);
   bottomBtn.addEventListener('click', handleToggle);
 
-  // LOGIKA LIKE: TETAP ♡ TAPI JADI HITAM PEKAT & TEBAL
+  // LOGIKA LIKE: LINE (♡) -> BLOCK HITAM (♥)
   const likeBtn = document.getElementById('like-btn');
+  let isLiked = false;
+
   likeBtn.addEventListener('click', function() {
-    this.classList.toggle('active');
+    isLiked = !isLiked;
+    this.innerHTML = isLiked ? '♥' : '♡';
   });
 </script>
 
