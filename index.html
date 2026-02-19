@@ -72,14 +72,16 @@ body{
   text-transform: uppercase;
   padding: 0 15px;
   letter-spacing: 0.5px;
+  transition: color 0.2s ease; /* Transisi warna halus */
 }
 
+/* PERBAIKAN: Hanya ubah warna teks, bukan background */
 .menu-links a:hover {
-  background: #fff;
-  color: #000;
+  color: #aaaaaa; /* Berubah jadi abu-abu muda saat di-hover */
+  background: none; 
 }
 
-/* FIX SEARCH AREA - LOGO TETAP DI KANAN */
+/* FIX SEARCH AREA */
 .search-container {
   display: flex;
   align-items: center;
@@ -91,7 +93,7 @@ body{
 
 .search-wrapper {
   display: flex;
-  align-items: center; /* Sejajar tengah secara horizontal */
+  align-items: center;
   gap: 8px;
 }
 
@@ -186,7 +188,7 @@ body{
   background: #fff;
 }
 
-/* ================= HERO (CLEAN) ================= */
+/* ================= HERO ================= */
 .hero{
   position:relative;
   height:100vh;
@@ -241,7 +243,6 @@ body{
   gap: 15px;
 }
 
-/* FIX TOMBOL PLAY BAWAH - TANPA GRID/KOTAK */
 .btn-toggle-bottom {
   cursor: pointer;
   width: 25px;
@@ -249,7 +250,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px; /* Ukuran ikon dipertegas */
+  font-size: 20px;
   user-select: none;
   transition: opacity 0.2s;
 }
@@ -270,6 +271,12 @@ body{
 .title-info span { font-size: 10px; opacity: 0.6; }
 
 .player-right-menu { display: flex; gap: 20px; font-weight: 800; font-size: 11px; text-transform: uppercase; }
+
+/* Tambahan: Efek hover untuk menu player kanan biar konsisten */
+.player-right-menu div:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -313,7 +320,6 @@ body{
 <div class="player-fixed">
   <div class="player-left">
     <div class="btn-toggle-bottom" id="toggle-bottom">▶</div>
-    
     <div class="track-box">
       <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2" alt="Cover">
       <div class="title-info">
@@ -324,8 +330,8 @@ body{
   </div>
 
   <div class="player-right-menu">
-    <div style="cursor:pointer">Up Next ↑</div>
-    <div style="cursor:pointer">✕</div>
+    <div>Up Next ↑</div>
+    <div>✕</div>
   </div>
 </div>
 
