@@ -31,25 +31,23 @@ body{
 
 /* Bar Atas: Logo & Menu */
 .nav-top {
-  height: 60px; /* Sedikit lebih tinggi biar logo enak dilihat */
+  height: 50px; /* Diperpendek agar hemat space */
   background: #000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #fff; /* Konsistensi 1px Putih */
-  padding: 0;
+  border-bottom: 1px solid #fff;
+  padding: 0 15px;
 }
 
 .logo-main {
-  height: 100%;
-  padding: 0 25px;
   display: flex;
   align-items: center;
-  border-right: 1px solid #fff; /* Konsistensi 1px Putih */
+  /* Tanpa border-right agar logo bisa lebih besar */
 }
 
 .logo-main img {
-  height: 45px; /* Logo diperbesar */
+  height: 42px; /* Logo lebih besar */
   width: auto;
   display: block;
 }
@@ -62,14 +60,14 @@ body{
 .menu-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px; /* Font sedikit dikecilkan agar compact */
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0 20px;
+  padding: 0 12px; /* Jarak antar menu dirapatkan */
   display: flex;
   align-items: center;
-  letter-spacing: 1px;
-  border-left: 1px solid #fff; /* Konsistensi 1px Putih */
+  letter-spacing: 0.5px;
+  border-left: 1px solid #fff;
   transition: 0.2s;
 }
 
@@ -80,37 +78,37 @@ body{
 
 /* Bar Bawah: Live Info */
 .nav-live {
-  height: 40px;
+  height: 32px; /* Sangat tipis & compact */
   background: #000;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #fff; /* Konsistensi 1px Putih */
+  border-bottom: 1px solid #fff;
 }
 
 .live-label {
   background: #fff;
   color: #000;
   height: 100%;
-  padding: 0 20px;
-  font-size: 11px;
-  font-weight: 600; /* Font live tidak terlalu bold */
+  padding: 0 12px;
+  font-size: 10px;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   text-transform: uppercase;
 }
 
 .live-label span {
   color: red;
-  font-size: 14px;
+  font-size: 12px;
   animation: blink 1.5s infinite;
 }
 
 @keyframes blink { 0% {opacity:1;} 50% {opacity:0.2;} 100% {opacity:1;} }
 
 .current-show {
-  padding: 0 20px;
-  font-size: 12px;
+  padding: 0 15px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -124,34 +122,34 @@ body{
   background:url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') center/cover no-repeat;
   display:flex;
   align-items:flex-end;
-  padding:80px;
+  padding:60px;
 }
 
 .overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.4));
+  background:linear-gradient(to top, rgba(0,0,0,1) 10%, rgba(0,0,0,0.3));
 }
 
 .hero-content{
   position:relative;
   max-width:600px;
-  margin-bottom: 80px; 
+  margin-bottom: 60px; 
 }
 
 .hero h2{
-  font-size: 90px; 
+  font-size: 80px; 
   font-weight: 900;
   line-height: 0.8;
-  margin-bottom: 20px;
-  letter-spacing: -4px;
+  margin-bottom: 15px;
+  letter-spacing: -3px;
   text-transform: uppercase;
 }
 
 .hero p {
-  font-size: 15px;
-  line-height: 1.5;
-  max-width: 400px;
+  font-size: 13px;
+  line-height: 1.4;
+  max-width: 350px;
   opacity: 0.7;
 }
 
@@ -161,38 +159,38 @@ body{
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 65px;
+  height: 55px; /* Player lebih tipis */
   background: #fff;
   color: #000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 25px;
-  border-top: 1px solid #000; /* Border atas player hitam biar kontras */
+  padding: 0 20px;
+  border-top: 1px solid #000;
   z-index: 1000;
 }
 
 .track-box {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .track-box img {
-  width: 45px;
-  height: 45px;
+  width: 38px;
+  height: 38px;
   border: 1px solid #000;
   object-fit: cover;
 }
 
-.title-info b { font-size: 14px; display: block; text-transform: uppercase; }
-.title-info span { font-size: 11px; opacity: 0.6; }
+.title-info b { font-size: 12px; display: block; text-transform: uppercase; }
+.title-info span { font-size: 10px; opacity: 0.6; }
 
 .player-right-menu {
   display: flex;
-  gap: 25px;
+  gap: 20px;
   font-weight: 800;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
 }
 </style>
