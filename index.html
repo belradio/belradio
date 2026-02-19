@@ -16,8 +16,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .logo-main img { height: 46px; cursor: pointer; }
 
 .nav-right-side { display: flex; align-items: center; }
-.menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; transition: 0.2s; }
-.menu-links a:hover { opacity: 0.6; }
+.menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; }
 
 /* ================= NAV LIVE ================= */
 .nav-live { height: 32px; background: #000; display: flex; align-items: center; border-bottom: 1px solid #fff; }
@@ -51,23 +50,33 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .title-info b { font-size: 11px; display: block; text-transform: uppercase; font-weight: 700; }
 .title-info span { font-size: 9px; opacity: 0.7; }
 
-/* JAJARAN KANAN */
+/* JAJARAN KANAN: UKURAN SERAGAM SESUAI SHARE */
 .player-right { display: flex; align-items: center; height: 100%; }
-.icon-group { display: flex; align-items: center; gap: 18px; padding: 0 20px; }
-.icon-group span { cursor: pointer; color: #000; display: flex; align-items: center; }
+.icon-group { display: flex; align-items: center; gap: 18px; padding: 0 18px; }
 
-/* ANGKA 30 BOLD HITAM (Sama dengan menu Latest) */
-.skip-btn { font-size: 11px; font-weight: 700; text-transform: uppercase; }
+.icon-group span { 
+    cursor: pointer; 
+    color: #000; 
+    display: flex; 
+    align-items: center; 
+    font-size: 18px; /* Ukuran dasar untuk menyamakan skala */
+    font-weight: 700;
+}
 
-/* PAKSA SHARE HITAM PEKAT */
+/* KHUSUS REWIND/FORWARD (Font menu Latest) */
+.skip-btn { font-size: 11px !important; text-transform: uppercase; }
+
+/* KHUSUS SHARE HITAM PEKAT */
 .share-icon { 
-    font-size: 18px;
-    filter: grayscale(1) brightness(0); /* Cara paling paksa buat jadi item pekat */
+    filter: brightness(0); 
     opacity: 1 !important;
 }
 
+/* SOUNDCLOUD DISESUAIKAN VISUALNYA */
+.sc-icon { font-size: 22px !important; }
+
 /* LIKE ICON */
-#like-btn { font-size: 20px; font-weight: 700; }
+#like-btn { font-size: 19px; }
 
 .divider { width: 1px; height: 100%; background: #000; opacity: 0.1; } 
 
@@ -113,7 +122,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="icon-group">
       <span class="skip-btn" title="Rewind 30s">⟲ 30</span>
       <span class="skip-btn" title="Forward 30s">⟳ 30</span>
-      <span title="SoundCloud" style="font-size: 22px;">☁</span>
+      <span class="sc-icon" title="SoundCloud">☁</span>
     </div>
     
     <div class="divider"></div>
@@ -131,26 +140,24 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 </div>
 
 <script>
-  // INTERAKSI PLAY/STOP (Kecil & Besar sinkron)
+  // Sinkronisasi Tombol Play/Stop
   const smallBtn = document.getElementById('toggle-small');
   const bottomBtn = document.getElementById('toggle-bottom');
   let isPlaying = false;
 
   function handleToggle() {
     isPlaying = !isPlaying;
-    if (isPlaying) {
-      smallBtn.innerHTML = '<div class="stop-square-small"></div>';
-      bottomBtn.innerHTML = '<div class="stop-square-bottom"></div>';
-    } else {
-      smallBtn.innerHTML = '▶';
-      bottomBtn.innerHTML = '▶';
-    }
+    const stopContentSmall = '<div class="stop-square-small"></div>';
+    const stopContentBottom = '<div class="stop-square-bottom"></div>';
+    
+    smallBtn.innerHTML = isPlaying ? stopContentSmall : '▶';
+    bottomBtn.innerHTML = isPlaying ? stopContentBottom : '▶';
   }
 
   smallBtn.addEventListener('click', handleToggle);
   bottomBtn.addEventListener('click', handleToggle);
 
-  // INTERAKSI LIKE (Line ♡ ke Blok ♥)
+  // Like Toggle: Line ke Blok
   const likeBtn = document.getElementById('like-btn');
   let isLiked = false;
 
