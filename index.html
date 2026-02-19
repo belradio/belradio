@@ -19,7 +19,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 /* ================= HEADER CONTAINER ================= */
 .header-container { position: fixed; top: 0; width: 100%; z-index: 1000; }
 .nav-top { height: 48px; background: #000; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #fff; padding: 0 15px; }
-
 .logo-main img { height: 46px; cursor: pointer; transition: 0.3s; }
 .logo-main:hover img { transform: scale(1.05); }
 
@@ -29,11 +28,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
 .search-container { display: flex; align-items: center; padding-left: 15px; margin-left: 5px; height: 24px; border-left: 1px solid #fff; }
 .search-wrapper { display: flex; align-items: center; gap: 8px; }
-.search-input { 
-    background: transparent; border: none; border-bottom: 1px solid #fff; 
-    color: #fff; font-size: 12px; width: 80px; outline: none; transition: 0.4s; 
-    -webkit-user-select: text; user-select: text; 
-}
+.search-input { background: transparent; border: none; border-bottom: 1px solid #fff; color: #fff; font-size: 12px; width: 80px; outline: none; transition: 0.4s; -webkit-user-select: text; user-select: text; }
 .search-input:focus { width: 140px; }
 .search-icon { width: 13px; height: 13px; border: 1.5px solid #fff; border-radius: 50%; position: relative; cursor: pointer; }
 .search-icon::after { content: ""; position: absolute; width: 1.5px; height: 5px; background: #fff; bottom: -3px; right: -2px; transform: rotate(-45deg); }
@@ -59,85 +54,60 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     align-items: flex-start;
     text-align: left;
 }
+.hero h2 { font-size: 85px; font-weight: 800; line-height: 0.8; letter-spacing: -5px; text-transform: uppercase; margin-bottom: 10px; margin-left: -4px; }
+.worldwide-label { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0px; margin-bottom: 25px; }
+.hero-description { font-size: 13px; line-height: 1.6; opacity: 0.6; font-weight: 400; max-width: 420px; }
 
-.hero h2 { 
-    font-size: 85px; 
-    font-weight: 800; 
-    line-height: 0.8; 
-    letter-spacing: -5px; 
-    text-transform: uppercase; 
-    margin-bottom: 10px;
-    margin-left: -4px;
+/* ================= ARCHIVE SECTION ================= */
+.archive-section { padding: 80px 60px 120px 60px; background: #000; }
+.archive-header { 
+    display: flex; justify-content: space-between; align-items: flex-end; 
+    border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; margin-bottom: 40px; 
+}
+.archive-header h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
+.archive-header a { font-size: 11px; font-weight: 700; color: #fff; text-decoration: none; opacity: 0.5; transition: 0.3s; }
+.archive-header a:hover { opacity: 1; }
+
+.archive-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 40px 20px; 
 }
 
-.worldwide-label { 
-    font-size: 16px; 
-    font-weight: 800; 
-    text-transform: uppercase; 
-    letter-spacing: 0px;
-    margin-bottom: 25px;
-}
+.archive-item { cursor: pointer; transition: 0.3s; }
+.archive-item:hover { transform: translateY(-5px); }
+.archive-item .img-box { width: 100%; aspect-ratio: 1/1; background: #111; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
+.archive-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+.archive-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
 
-.hero-description { 
-    font-size: 13px; 
-    line-height: 1.6; 
-    opacity: 0.6; 
-    font-weight: 400;
-    max-width: 420px;
-}
+.archive-info b { display: block; font-size: 14px; text-transform: uppercase; font-weight: 800; margin-bottom: 4px; }
+.archive-info span { font-size: 11px; opacity: 0.5; text-transform: uppercase; }
 
-/* ================= PLAYER FIXED (NO TOP LINE) ================= */
+/* ================= PLAYER FIXED ================= */
 .player-fixed {
   position: fixed; bottom: 0; width: 100%; height: 55px; 
-  background: #000; 
-  color: #fff;      
-  display: flex; align-items: center; justify-content: space-between; 
-  border-top: none; /* GARIS PUTIH DIHAPUS DISINI */
-  z-index: 1000;
-  transition: transform 0.4s ease-in-out, opacity 0.3s;
+  background: #000; color: #fff; display: flex; align-items: center; justify-content: space-between; 
+  border-top: none; z-index: 1000; transition: transform 0.4s ease-in-out, opacity 0.3s;
 }
-
 .player-left { display: flex; align-items: center; padding-left: 20px; gap: 15px; }
 .btn-toggle-bottom { cursor: pointer; font-size: 22px; width: 25px; display: flex; justify-content: center; }
 .stop-square-bottom { width: 14px; height: 14px; background: #fff; } 
-
 .track-box { display: flex; align-items: center; gap: 12px; }
 .track-box img { width: 38px; height: 38px; border: 1px solid #fff; filter: grayscale(100%); }
 .title-info b { font-size: 12.5px; display: block; text-transform: uppercase; font-weight: 700; line-height: 1.2; }
 .title-info span { font-size: 10px; opacity: 0.7; font-weight: 400; }
-
 .player-right { display: flex; align-items: center; height: 100%; }
 .icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
 .icon-group span { cursor: pointer; color: #fff; display: flex; align-items: center; font-weight: 700; transition: 0.2s; }
 .icon-group span:hover { opacity: 0.5; }
-
 .skip-btn { font-size: 13px !important; } 
 .sc-icon { font-size: 24px !important; }
 #like-btn { font-size: 22px; } 
-
-.share-icon { 
-    font-size: 18px; 
-    filter: brightness(0) invert(1); 
-    opacity: 1; 
-}
-
+.share-icon { font-size: 18px; filter: brightness(0) invert(1); opacity: 1; }
 .menu-icon { font-size: 18px; }
 .divider { width: 1px; height: 100%; background: #fff; opacity: 0.2; } 
-
-.up-next-btn {
-  display: flex; align-items: center; gap: 6px; padding: 0 20px;
-  font-weight: 700; font-size: 11px; 
-  color: #fff; 
-  text-decoration: none; transition: 0.2s;
-}
-.up-next-btn:hover { opacity: 0.5; }
-.up-next-btn span { font-size: 11px; font-weight: 900; }
-
-.close-btn {
-  padding: 0 20px; font-size: 18px; font-weight: 400; cursor: pointer;
-  border-left: 1px solid #fff; opacity: 0.4; height: 100%; display: flex; align-items: center;
-  transition: 0.3s;
-}
+.up-next-btn { display: flex; align-items: center; gap: 6px; padding: 0 20px; font-weight: 700; font-size: 11px; color: #fff; text-decoration: none; transition: 0.2s; }
+.close-btn { padding: 0 20px; font-size: 18px; font-weight: 400; cursor: pointer; border-left: 1px solid #fff; opacity: 0.4; height: 100%; display: flex; align-items: center; transition: 0.3s; }
 .close-btn:hover { opacity: 1; }
 </style>
 </head>
@@ -148,10 +118,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="logo-main" title="RAT Radio Home"><img src="New%20Project%20(3).png" alt="RAT Radio"></div>
     <div class="nav-right-side">
       <div class="menu-links">
-        <a href="#" title="View Latest Shows">Latest</a>
-        <a href="#" title="Explore Music">Explore</a>
-        <a href="#" title="RAT Shop">Shop</a>
-        <a href="#" title="About Us">About</a>
+        <a href="#">Latest</a><a href="#">Explore</a><a href="#">Shop</a><a href="#">About</a>
       </div>
       <div class="search-container">
         <div class="search-wrapper">
@@ -181,32 +148,62 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     </div>
 </div>
 
+<section class="archive-section">
+    <div class="archive-header">
+        <h3>Archive</h3>
+        <a href="#">View All ↗</a>
+    </div>
+    
+    <div class="archive-grid">
+        <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026')">
+            <div class="img-box"><img src="https://i.pinimg.com/736x/21/61/5c/21615c102573216892374e2a868f031b.jpg" alt="Archive"></div>
+            <div class="archive-info">
+                <b>The Sewer Ghost</b>
+                <span>Ghostface — 12 Feb 2026</span>
+            </div>
+        </div>
+        <div class="archive-item" onclick="changeTrack('NIGHT SHIFT', 'MALIK — 08 FEB 2026')">
+            <div class="img-box"><img src="https://i.pinimg.com/736x/1a/0d/1b/1a0d1b95345d3e232753239a51834167.jpg" alt="Archive"></div>
+            <div class="archive-info">
+                <b>Night Shift</b>
+                <span>Malik — 08 Feb 2026</span>
+            </div>
+        </div>
+        <div class="archive-item" onclick="changeTrack('CONCRETE JUNGLE', 'VEX — 01 FEB 2026')">
+            <div class="img-box"><img src="https://i.pinimg.com/736x/0a/61/c1/0a61c14040f959c8849b2575239a5183.jpg" alt="Archive"></div>
+            <div class="archive-info">
+                <b>Concrete Jungle</b>
+                <span>Vex — 01 Feb 2026</span>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="player-fixed" id="main-player">
   <div class="player-left">
     <div class="btn-toggle-bottom" id="toggle-bottom" title="Play/Stop">▶</div>
     <div class="track-box">
-      <img src="https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg" alt="Cover">
+      <img src="https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg" alt="Cover" id="bottom-cover">
       <div class="title-info">
         <b id="player-title">In The Sewer</b>
         <span id="player-sub">Dirty Cat — 19 Feb 2026</span>
       </div>
     </div>
   </div>
-
   <div class="player-right">
     <div class="icon-group">
-      <span class="skip-btn" title="Rewind 30s">⟲ 30</span>
-      <span class="skip-btn" title="Forward 30s">⟳ 30</span>
-      <span class="sc-icon" title="Listen on SoundCloud">☁</span>
+        <span class="skip-btn" title="Rewind 30s">⟲ 30</span>
+        <span class="skip-btn" title="Forward 30s">⟳ 30</span>
+        <span class="sc-icon" title="Listen on SoundCloud">☁</span>
     </div>
     <div class="divider"></div>
     <div class="icon-group">
-      <span id="like-btn" title="Like">♡</span>
-      <span class="share-icon" title="Share Track">🔗</span>
-      <span class="menu-icon" title="More Options">☰</span>
+        <span id="like-btn" title="Like">♡</span>
+        <span class="share-icon" title="Share Track">🔗</span>
+        <span class="menu-icon" title="More Options">☰</span>
     </div>
-    <a href="#" class="up-next-btn" title="See what's next">UP NEXT <span>▲</span></a>
-    <div class="close-btn" id="close-player" title="Close Player">✕</div>
+    <a href="#" class="up-next-btn">UP NEXT <span>▲</span></a>
+    <div class="close-btn" id="close-player">✕</div>
   </div>
 </div>
 
@@ -216,23 +213,34 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   const playerBar = document.getElementById('main-player');
   const playerTitle = document.getElementById('player-title');
   const playerSub = document.getElementById('player-sub');
-  
-  let isPlaying = false;
-  let isClosed = false;
+  let isPlaying = false; let isClosed = false;
 
   function handleToggle() {
     isPlaying = !isPlaying;
     if (isClosed && isPlaying) {
-      isClosed = false;
-      playerBar.style.display = 'flex';
+      isClosed = false; playerBar.style.display = 'flex';
       setTimeout(() => { playerBar.style.transform = 'translateY(0)'; }, 10);
-      playerTitle.innerText = "BASEMENT SESSIONS";
-      playerSub.innerText = "DIRTY CAT — LIVE NOW";
+      playerTitle.innerText = "BASEMENT SESSIONS"; playerSub.innerText = "DIRTY CAT — LIVE NOW";
     }
+    updatePlayIcons();
+  }
+
+  function updatePlayIcons() {
     const stopS = '<div class="stop-square-small"></div>';
     const stopB = '<div class="stop-square-bottom"></div>';
     smallBtn.innerHTML = isPlaying ? stopS : '▶';
     bottomBtn.innerHTML = isPlaying ? stopB : '▶';
+  }
+
+  // Fungsi baru: Klik Archive ganti lagu di bar
+  function changeTrack(title, sub) {
+    playerTitle.innerText = title;
+    playerSub.innerText = sub;
+    if (!isPlaying) { isPlaying = true; updatePlayIcons(); }
+    if (isClosed) { 
+        isClosed = false; playerBar.style.display = 'flex';
+        setTimeout(() => { playerBar.style.transform = 'translateY(0)'; }, 10);
+    }
   }
 
   smallBtn.addEventListener('click', handleToggle);
@@ -241,21 +249,14 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   const likeBtn = document.getElementById('like-btn');
   let isLiked = false;
   likeBtn.addEventListener('click', function() {
-    isLiked = !isLiked;
-    this.innerHTML = isLiked ? '♥' : '♡';
+    isLiked = !isLiked; this.innerHTML = isLiked ? '♥' : '♡';
     this.title = isLiked ? "Unlike" : "Like";
   });
 
   const closeBtn = document.getElementById('close-player');
   closeBtn.addEventListener('click', function() {
-    isClosed = true;
-    playerBar.style.transform = 'translateY(100%)';
-    setTimeout(() => {
-        playerBar.style.display = 'none';
-        isPlaying = false;
-        smallBtn.innerHTML = '▶';
-        bottomBtn.innerHTML = '▶';
-    }, 400);
+    isClosed = true; playerBar.style.transform = 'translateY(100%)';
+    setTimeout(() => { playerBar.style.display = 'none'; isPlaying = false; updatePlayIcons(); }, 400);
   });
 </script>
 
