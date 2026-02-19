@@ -16,6 +16,7 @@
 body{
   background:#000;
   color:#fff;
+  overflow: hidden; /* Biar rapi karena ini web radio single page */
 }
 
 /* ================= NAVBAR ================= */
@@ -64,7 +65,7 @@ body{
   display:flex;
   align-items:center;
   height:100%;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .show{
@@ -88,12 +89,13 @@ body{
 .overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
+  background:linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.2));
 }
 
 .hero-content{
   position:relative;
   max-width:500px;
+  margin-bottom: 40px; /* Jarak dari player bawah */
 }
 
 .play-btn{
@@ -112,11 +114,11 @@ body{
 
 .play-btn:hover{
   transform:scale(1.1);
-  background: #ff0000; /* Sedikit aksen merah saat hover biar lebih 'RAT' */
+  background: #ff0000;
 }
 
 .hero h2{
-  font-size:52px; /* Diperbesar sedikit biar lebih bold */
+  font-size:48px;
   font-weight:900;
   margin-bottom:10px;
   line-height: 1;
@@ -152,35 +154,37 @@ body{
   content:"";
   position:absolute;
   height:100%;
-  width:65%; /* Progress simulasi */
+  width:65%;
   background:#fff;
 }
 
-/* ================= PLAYER ================= */
+/* ================= PLAYER (UPDATED SIZE) ================= */
 
 .player{
   position:fixed;
   bottom:0;
   width:100%;
-  height:80px;
-  background:#fff; /* Putih kontras tinggi */
+  height:60px; 
+  background:#fff; 
   color:#000;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:0 40px;
-  border-top:1px solid #ccc;
+  padding:0 20px; 
+  border-top:1px solid #000;
+  z-index: 1000;
 }
 
 .player-left{
   display:flex;
   align-items:center;
-  gap:15px;
+  gap:12px;
+  height: 100%;
 }
 
 .player-left img{
-  width:55px;
-  height:55px;
+  width:40px; 
+  height:40px;
   object-fit:cover;
   border: 1px solid #000;
 }
@@ -188,18 +192,20 @@ body{
 .play{
   background:none;
   border:none;
-  font-size:24px;
+  font-size:18px; 
   cursor:pointer;
-  transition:0.2s;
+  display: flex;
+  align-items: center;
 }
 
 .track-info .title{
   font-weight:700;
-  font-size:15px;
+  font-size:13px; 
+  line-height: 1.2;
 }
 
 .track-info .date{
-  font-size:11px;
+  font-size:10px;
   text-transform: uppercase;
   opacity:0.6;
 }
@@ -207,25 +213,29 @@ body{
 .player-right{
   display:flex;
   align-items:center;
-  gap:30px;
+  gap:20px; 
 }
 
 .icon{
-  font-size:22px;
+  font-size:18px; 
   cursor:pointer;
-  transition:0.2s ease;
+  transition: 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
 }
 
 .upnext{
   font-weight:900;
-  font-size:14px;
+  font-size:12px; 
   letter-spacing:0.5px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .close{
-  font-size:20px;
-  cursor:pointer;
+  font-size:16px;
+  cursor: pointer;
 }
 </style>
 </head>
@@ -235,7 +245,8 @@ body{
 <div class="nav">
   <div class="nav-left">
     <div class="live">LIVE NOW <span>●</span></div>
-    <div class="channel">RAT-01</div> <div class="show">Basement Sessions</div>
+    <div class="channel">RAT-01</div>
+    <div class="show">Basement Sessions</div>
   </div>
 </div>
 
