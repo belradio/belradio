@@ -41,7 +41,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .btn-toggle-small { cursor: pointer; margin-right: 12px; width: 14px; display: flex; justify-content: center; }
 .stop-square-small { width: 10px; height: 10px; background: #fff; }
 
-/* ================= HERO (RESTORED) ================= */
+/* ================= HERO ================= */
 .hero{ position:relative; height:100vh; background:url(https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg) center/cover; display:flex; align-items:flex-end; padding:60px; filter: grayscale(100%); }
 .overlay{ position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,1) 5%, rgba(0,0,0,0.2)); }
 
@@ -78,19 +78,21 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .archive-item .img-box { width: 100%; aspect-ratio: 1/1; background: #111; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
 .archive-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
 
-/* Interaksi Hover */
 .archive-item:hover { transform: translateY(-8px); }
 .archive-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
 
 .archive-info b { display: block; font-size: 14px; text-transform: uppercase; font-weight: 800; margin-bottom: 4px; color: #fff; }
 .archive-info span { font-size: 11px; opacity: 0.5; text-transform: uppercase; font-weight: 400; }
 
-/* ================= PLAYER FIXED ================= */
+/* ================= PLAYER FIXED (MODIFIED FOR DEFAULT HIDDEN) ================= */
 .player-fixed {
   position: fixed; bottom: 0; width: 100%; height: 55px; 
-  background: #000; color: #fff; display: flex; align-items: center; justify-content: space-between; 
-  border-top: none; z-index: 1000; transition: transform 0.4s ease-in-out, opacity 0.3s;
+  background: #000; color: #fff; display: none; /* SEMBUNYI DEFAULT */
+  align-items: center; justify-content: space-between; 
+  z-index: 1000; transform: translateY(100%); /* BERADA DI BAWAH LAYAR */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .player-left { display: flex; align-items: center; padding-left: 20px; gap: 15px; }
 .btn-toggle-bottom { cursor: pointer; font-size: 22px; width: 25px; display: flex; justify-content: center; }
 .stop-square-bottom { width: 14px; height: 14px; background: #fff; } 
@@ -157,33 +159,21 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     </div>
     
     <div class="archive-grid">
-        <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026', 'https://i.pinimg.com/736x/02/96/82/029682e149fdf28b7ba3d245a8fb6312.jpg)">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/02/96/82/029682e149fdf28b7ba3d245a8fb6312.jpg?auto=format&fit=crop&w=600&q=80" alt="Archive"></div>
-            <div class="archive-info">
-                <b>The Sewer Ghost</b>
-                <span>Ghostface — 12 Feb 2026</span>
-            </div>
+        <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026', 'https://id.pinterest.com/pin/15973773672357434?auto=format&fit=crop&w=600&q=80')">
+            <div class="img-box"><img src="https://id.pinterest.com/pin/15973773672357434/auto=format&fit=crop&w=600&q=80" alt="Archive"></div>
+            <div class="archive-info"><b>The Sewer Ghost</b><span>Ghostface — 12 Feb 2026</span></div>
         </div>
-        <div class="archive-item" onclick="changeTrack('NIGHT SHIFT', 'MALIK — 08 FEB 2026', 'https://i.pinimg.com/736x/02/96/82/029682e149fdf28b7ba3d245a8fb6312.jpg)">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/02/96/82/029682e149fdf28b7ba3d245a8fb6312.jpg?auto=format&fit=crop&w=600&q=80" alt="Archive"></div>
-            <div class="archive-info">
-                <b>Night Shift</b>
-                <span>Malik — 08 Feb 2026</span>
-            </div>
+        <div class="archive-item" onclick="changeTrack('NIGHT SHIFT', 'MALIK — 08 FEB 2026', 'https://id.pinterest.com/pin/34199278419024514?auto=format&fit=crop&w=600&q=80')">
+            <div class="img-box"><img src="https://id.pinterest.com/pin/34199278419024514/?auto=format&fit=crop&w=600&q=80" alt="Archive"></div>
+            <div class="archive-info"><b>Night Shift</b><span>Malik — 08 Feb 2026</span></div>
         </div>
-        <div class="archive-item" onclick="changeTrack('CONCRETE JUNGLE', 'VEX — 01 FEB 2026', 'https://i.pinimg.com/736x/02/96/82/029682e149fdf28b7ba3d245a8fb6312.jpg)">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/02/96/82/029682e149fdf28b7ba3d245a8fb6312.jpg?auto=format&fit=crop&w=600&q=80" alt="Archive"></div>
-            <div class="archive-info">
-                <b>Concrete Jungle</b>
-                <span>Vex — 01 Feb 2026</span>
-            </div>
+        <div class="archive-item" onclick="changeTrack('CONCRETE JUNGLE', 'VEX — 01 FEB 2026', 'https://id.pinterest.com/pin/50876670785691649?auto=format&fit=crop&w=600&q=80')">
+            <div class="img-box"><img src="https://id.pinterest.com/pin/50876670785691649?auto=format&fit=crop&w=600&q=80" alt="Archive"></div>
+            <div class="archive-info"><b>Concrete Jungle</b><span>Vex — 01 Feb 2026</span></div>
         </div>
-        <div class="archive-item" onclick="changeTrack('UNDERGROUND ECHO', 'LOST SIGNAL — 28 JAN 2026', 'https://i.pinimg.com/736x/02/96/82/029682e149fdf28b7ba3d245a8fb6312.jpg?auto=format&fit=crop&w=600&q=80')">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/02/96/82/029682e149fdf28b7ba3d245a8fb6312.jpg?auto=format&fit=crop&w=600&q=80" alt="Archive"></div>
-            <div class="archive-info">
-                <b>Underground Echo</b>
-                <span>Lost Signal — 28 Jan 2026</span>
-            </div>
+        <div class="archive-item" onclick="changeTrack('UNDERGROUND ECHO', 'LOST SIGNAL — 28 JAN 2026', 'https://id.pinterest.com/pin/648940627582492788?auto=format&fit=crop&w=600&q=80')">
+            <div class="img-box"><img src="https://id.pinterest.com/pin/648940627582492788?auto=format&fit=crop&w=600&q=80" alt="Archive"></div>
+            <div class="archive-info"><b>Underground Echo</b><span>Lost Signal — 28 Jan 2026</span></div>
         </div>
     </div>
 </section>
@@ -224,7 +214,19 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   const playerSub = document.getElementById('player-sub');
   const bottomCover = document.getElementById('bottom-cover');
   
-  let isPlaying = false; let isClosed = false;
+  let isPlaying = false; 
+  let playerVisible = false;
+
+  function showPlayer() {
+    if (!playerVisible) {
+        playerBar.style.display = 'flex';
+        // Delay dikit supaya transisi CSS jalan setelah display berubah
+        setTimeout(() => {
+            playerBar.style.transform = 'translateY(0)';
+        }, 10);
+        playerVisible = true;
+    }
+  }
 
   function updatePlayIcons() {
     const stopS = '<div class="stop-square-small"></div>';
@@ -235,10 +237,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
   function handleToggle() {
     isPlaying = !isPlaying;
-    if (isClosed && isPlaying) {
-      isClosed = false; playerBar.style.display = 'flex';
-      setTimeout(() => { playerBar.style.transform = 'translateY(0)'; }, 10);
-    }
+    if (isPlaying) showPlayer(); // Munculin bar kalau dipencet play
     updatePlayIcons();
   }
 
@@ -246,11 +245,9 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     playerTitle.innerText = title;
     playerSub.innerText = sub;
     bottomCover.src = imgSrc; 
-    if (!isPlaying) { isPlaying = true; updatePlayIcons(); }
-    if (isClosed) { 
-        isClosed = false; playerBar.style.display = 'flex';
-        setTimeout(() => { playerBar.style.transform = 'translateY(0)'; }, 10);
-    }
+    isPlaying = true;
+    showPlayer(); // Munculin bar kalau pilih lagu di archive
+    updatePlayIcons();
   }
 
   smallBtn.addEventListener('click', handleToggle);
@@ -264,8 +261,13 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
   const closeBtn = document.getElementById('close-player');
   closeBtn.addEventListener('click', function() {
-    isClosed = true; playerBar.style.transform = 'translateY(100%)';
-    setTimeout(() => { playerBar.style.display = 'none'; isPlaying = false; updatePlayIcons(); }, 400);
+    playerBar.style.transform = 'translateY(100%)';
+    setTimeout(() => { 
+        playerBar.style.display = 'none'; 
+        playerVisible = false;
+        isPlaying = false; 
+        updatePlayIcons();
+    }, 400);
   });
 </script>
 
