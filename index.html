@@ -6,13 +6,13 @@
 <title>RAT Radio | Worldwide</title>
 
 <style>
-/* CSS RESET & ANTI-BLOK BIRU (User Select None) */
+/* CSS RESET & ANTI-BLOK BIRU */
 *{ 
     margin:0; padding:0; box-sizing:border-box; 
     font-family: 'Inter', Helvetica, Arial, sans-serif; 
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none;     /* IE 10+ */
-    user-select: none;         /* Standard - Matikan blok biru saat klik */
+    -webkit-user-select: none; 
+    -ms-user-select: none;     
+    user-select: none;         
 }
 
 body{ background:#000; color:#fff; overflow-x: hidden; }
@@ -33,7 +33,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .search-input { 
     background: transparent; border: none; border-bottom: 1px solid #fff; 
     color: #fff; font-size: 12px; width: 80px; outline: none; transition: 0.4s; 
-    -webkit-user-select: text; user-select: text; /* Izinkan ngetik di search */
+    -webkit-user-select: text; user-select: text; 
 }
 .search-input:focus { width: 140px; }
 .search-icon { width: 13px; height: 13px; border: 1.5px solid #fff; border-radius: 50%; position: relative; cursor: pointer; }
@@ -74,7 +74,10 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
 .player-right { display: flex; align-items: center; height: 100%; }
 .icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
-.icon-group span { cursor: pointer; color: #000; display: flex; align-items: center; font-weight: 700; }
+.icon-group span { cursor: pointer; color: #000; display: flex; align-items: center; font-weight: 700; transition: 0.2s; }
+
+/* INTERAKSI HOVER PADA IKON (TERMASUK 30) */
+.icon-group span:hover { opacity: 0.4; }
 
 /* Penyesuaian Detail Ukuran */
 .skip-btn { font-size: 13px !important; } 
@@ -87,8 +90,9 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
 .up-next-btn {
   display: flex; align-items: center; gap: 6px; padding: 0 20px;
-  font-weight: 700; font-size: 11px; color: #000; text-decoration: none;
+  font-weight: 700; font-size: 11px; color: #000; text-decoration: none; transition: 0.2s;
 }
+.up-next-btn:hover { opacity: 0.4; }
 .up-next-btn span { font-size: 11px; font-weight: 900; }
 
 .close-btn {
@@ -103,13 +107,18 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
 <div class="header-container">
   <div class="nav-top">
-    <div class="logo-main"><img src="New%20Project%20(3).png" alt="RAT Radio"></div>
+    <div class="logo-main" title="RAT Radio Home"><img src="New%20Project%20(3).png" alt="RAT Radio"></div>
     <div class="nav-right-side">
-      <div class="menu-links"><a href="#">Latest</a><a href="#">Explore</a><a href="#">Shop</a><a href="#">About</a></div>
+      <div class="menu-links">
+        <a href="#" title="View Latest Shows">Latest</a>
+        <a href="#" title="Explore Music">Explore</a>
+        <a href="#" title="RAT Shop">Shop</a>
+        <a href="#" title="About Us">About</a>
+      </div>
       <div class="search-container">
         <div class="search-wrapper">
-          <input type="text" class="search-input">
-          <div class="search-icon"></div>
+          <input type="text" class="search-input" placeholder="">
+          <div class="search-icon" title="Search"></div>
         </div>
       </div>
     </div>
@@ -117,7 +126,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   <div class="nav-live">
     <div class="live-label">Live Now <span>●</span></div>
     <div class="current-show">
-        <div class="btn-toggle-small" id="toggle-small">▶</div> 
+        <div class="btn-toggle-small" id="toggle-small" title="Play/Stop">▶</div> 
         <span id="live-text-source">BASEMENT SESSIONS W/ DIRTY CAT</span>
     </div>
   </div>
@@ -127,7 +136,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
 <div class="player-fixed" id="main-player">
   <div class="player-left">
-    <div class="btn-toggle-bottom" id="toggle-bottom">▶</div>
+    <div class="btn-toggle-bottom" id="toggle-bottom" title="Play/Stop">▶</div>
     <div class="track-box">
       <img src="https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg" alt="Cover">
       <div class="title-info">
@@ -139,18 +148,18 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
   <div class="player-right">
     <div class="icon-group">
-      <span class="skip-btn">⟲ 30</span>
-      <span class="skip-btn">⟳ 30</span>
-      <span class="sc-icon">☁</span>
+      <span class="skip-btn" title="Rewind 30s">⟲ 30</span>
+      <span class="skip-btn" title="Forward 30s">⟳ 30</span>
+      <span class="sc-icon" title="Listen on SoundCloud">☁</span>
     </div>
     <div class="divider"></div>
     <div class="icon-group">
-      <span id="like-btn">♡</span>
-      <span class="share-icon">🔗</span>
-      <span class="menu-icon">☰</span>
+      <span id="like-btn" title="Like">♡</span>
+      <span class="share-icon" title="Share Track">🔗</span>
+      <span class="menu-icon" title="More Options">☰</span>
     </div>
-    <a href="#" class="up-next-btn">UP NEXT <span>▲</span></a>
-    <div class="close-btn" id="close-player">✕</div>
+    <a href="#" class="up-next-btn" title="See what's next">UP NEXT <span>▲</span></a>
+    <div class="close-btn" id="close-player" title="Close Player">✕</div>
   </div>
 </div>
 
@@ -160,7 +169,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   const playerBar = document.getElementById('main-player');
   const playerTitle = document.getElementById('player-title');
   const playerSub = document.getElementById('player-sub');
-  const liveTextSource = document.getElementById('live-text-source').innerText;
   
   let isPlaying = false;
   let isClosed = false;
@@ -168,13 +176,10 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   function handleToggle() {
     isPlaying = !isPlaying;
     
-    // Jika player sedang ditutup, buka kembali saat Play diklik
     if (isClosed && isPlaying) {
       isClosed = false;
       playerBar.style.display = 'flex';
       setTimeout(() => { playerBar.style.transform = 'translateY(0)'; }, 10);
-      
-      // Ubah teks sesuai yang ada di Live Now
       playerTitle.innerText = "BASEMENT SESSIONS";
       playerSub.innerText = "DIRTY CAT — LIVE NOW";
     }
@@ -194,6 +199,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   likeBtn.addEventListener('click', function() {
     isLiked = !isLiked;
     this.innerHTML = isLiked ? '♥' : '♡';
+    this.title = isLiked ? "Unlike" : "Like"; // Update tooltip saat status berubah
   });
 
   // CLOSE PLAYER BAR
@@ -203,7 +209,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     playerBar.style.transform = 'translateY(100%)';
     setTimeout(() => {
         playerBar.style.display = 'none';
-        // Reset state play saat bar ditutup (opsional, tergantung preferensi)
         isPlaying = false;
         smallBtn.innerHTML = '▶';
         bottomBtn.innerHTML = '▶';
