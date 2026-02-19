@@ -147,7 +147,7 @@ body{
 }
 
 .live-label span {
-  color: red; /* Dot Live tetap merah sebagai aksen */
+  color: red;
   font-size: 12px;
   animation: blink 1.5s infinite;
 }
@@ -164,7 +164,6 @@ body{
   align-items: center;
 }
 
-/* TOMBOL TOGGLE KECIL (HITAM PUTIH) */
 .btn-toggle-small {
   cursor: pointer;
   margin-right: 12px;
@@ -174,20 +173,15 @@ body{
   align-items: center;
   justify-content: center;
   user-select: none;
-  transition: color 0.2s;
-}
-
-.btn-toggle-small:hover {
-  color: #aaa; /* Sedikit abu-abu pas hover biar kelihatan aktif */
 }
 
 .stop-square-small {
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   background: #fff;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (CLEAN) ================= */
 .hero{
   position:relative;
   height:100vh;
@@ -209,40 +203,6 @@ body{
   margin-bottom: 80px; 
 }
 
-/* TOMBOL TOGGLE BESAR (MONOCHROME) */
-.btn-toggle-main {
-  width: 60px;
-  height: 60px;
-  background: #fff;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin-bottom: 20px;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-
-/* Efek Invert Hitam Putih pas Hover */
-.btn-toggle-main:hover { 
-  transform: scale(1.1); 
-  background: #000; 
-  color: #fff; 
-  border: 1px solid #fff;
-}
-
-.stop-square-main {
-  width: 24px;
-  height: 24px;
-  background: #000; /* Hitam saat tombol putih */
-  transition: background 0.2s;
-}
-
-.btn-toggle-main:hover .stop-square-main {
-  background: #fff; /* Jadi putih saat tombol hitam */
-}
-
 .hero h2{
   font-size: 80px; 
   font-weight: 900;
@@ -254,7 +214,7 @@ body{
 
 .hero p { font-size: 13px; opacity: 0.7; max-width: 350px; }
 
-/* ================= PLAYER FIXED ================= */
+/* ================= PLAYER FIXED (NEW CONTROL) ================= */
 .player-fixed {
   position: fixed;
   bottom: 0;
@@ -267,6 +227,42 @@ body{
   justify-content: space-between;
   padding: 0 20px;
   border-top: 1px solid #000;
+  z-index: 1000;
+}
+
+.player-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Tombol Play Baru di Pojok Kiri Bawah */
+.btn-toggle-bottom {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border: 1.5px solid #000;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.btn-toggle-bottom:hover {
+  background: #000;
+  color: #fff;
+}
+
+.stop-square-bottom {
+  width: 12px;
+  height: 12px;
+  background: #000;
+}
+
+.btn-toggle-bottom:hover .stop-square-bottom {
+  background: #fff;
 }
 
 .track-box { display: flex; align-items: center; gap: 12px; }
@@ -291,7 +287,7 @@ body{
       </div>
       <div class="search-container">
         <div class="search-wrapper">
-          <input type="text" class="search-input" id="search-bar" placeholder="">
+          <input type="text" class="search-input" placeholder="">
           <div class="search-icon"></div>
         </div>
       </div>
@@ -310,20 +306,24 @@ body{
 <div class="hero">
   <div class="overlay"></div>
   <div class="hero-content">
-    <div class="btn-toggle-main" id="toggle-main" style="font-size: 28px;">▶</div>
     <h2>RAT<br><span style="text-transform: none;">Radio</span></h2>
     <p>Worldwide</p>
   </div>
 </div>
 
 <div class="player-fixed">
-  <div class="track-box">
-    <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2" alt="Cover">
-    <div class="title-info">
-      <b>In The Sewer</b>
-      <span>Dirty Cat — 19 Feb 2026</span>
+  <div class="player-left">
+    <div class="btn-toggle-bottom" id="toggle-bottom">▶</div>
+    
+    <div class="track-box">
+      <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2" alt="Cover">
+      <div class="title-info">
+        <b>In The Sewer</b>
+        <span>Dirty Cat — 19 Feb 2026</span>
+      </div>
     </div>
   </div>
+
   <div class="player-right-menu">
     <div style="cursor:pointer">Up Next ↑</div>
     <div style="cursor:pointer">✕</div>
@@ -332,22 +332,24 @@ body{
 
 <script>
   const smallBtn = document.getElementById('toggle-small');
-  const mainBtn = document.getElementById('toggle-main');
+  const bottomBtn = document.getElementById('toggle-bottom');
   let isPlaying = false;
 
   function handleToggle() {
     isPlaying = !isPlaying;
     if (isPlaying) {
+      // GANTI KE STOP
       smallBtn.innerHTML = '<div class="stop-square-small"></div>';
-      mainBtn.innerHTML = '<div class="stop-square-main"></div>';
+      bottomBtn.innerHTML = '<div class="stop-square-bottom"></div>';
     } else {
+      // BALIK KE PLAY
       smallBtn.innerHTML = '▶';
-      mainBtn.innerHTML = '▶';
+      bottomBtn.innerHTML = '▶';
     }
   }
 
   smallBtn.addEventListener('click', handleToggle);
-  mainBtn.addEventListener('click', handleToggle);
+  bottomBtn.addEventListener('click', handleToggle);
 </script>
 
 </body>
