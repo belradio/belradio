@@ -14,8 +14,8 @@
 }
 
 body {
-  background: black;
-  color: white;
+  background: #000;
+  color: #fff;
   overflow-x: hidden;
 }
 
@@ -25,12 +25,12 @@ body {
   top: 0;
   width: 100%;
   height: 60px;
-  background: black;
+  background: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #fff;
   z-index: 1000;
 }
 
@@ -44,17 +44,11 @@ body {
   margin-left: 30px;
   font-size: 13px;
   cursor: pointer;
-  opacity: 0.7;
-  transition: 0.3s;
+  color: #fff;
 }
 
-.menu span:hover {
-  opacity: 1;
-}
-
-/* LIVE indicator */
 .live {
-  color: #ff2a2a;
+  color: #ff0000;
   font-size: 12px;
   font-weight: bold;
   margin-right: 15px;
@@ -64,35 +58,16 @@ body {
 /* HERO */
 .hero {
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1497032205916-ac775f0649ae') center/cover no-repeat;
+  background: #000;
   display: flex;
   align-items: center;
   padding-left: 80px;
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
 }
 
 .hero h1 {
-  font-size: 90px;
+  font-size: 100px;
   line-height: 0.9;
-  font-weight: 800;
-}
-
-.hero p {
-  margin-top: 20px;
-  font-size: 18px;
-  opacity: 0.8;
+  font-weight: 900;
 }
 
 /* PLAYER BAR */
@@ -101,17 +76,18 @@ body {
   bottom: 0;
   width: 100%;
   height: 70px;
-  background: #111;
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  border-top: 1px solid #222;
+  border-top: 1px solid #fff;
 }
 
 .player button {
   padding: 8px 22px;
-  background: white;
+  background: #fff;
+  color: #000;
   border: none;
   cursor: pointer;
   font-weight: bold;
@@ -119,7 +95,6 @@ body {
 }
 
 .player span {
-  opacity: 0.7;
   font-size: 14px;
 }
 </style>
@@ -130,7 +105,7 @@ body {
 <div class="nav">
   <div>
     <span class="live">● LIVE</span>
-    <span class="logo">BEL</span>
+    <span class="logo">BEL RADIO</span>
   </div>
   <div class="menu">
     <span>RADIO</span>
@@ -141,14 +116,11 @@ body {
 </div>
 
 <div class="hero">
-  <div class="hero-content">
-    <h1>BREAK<br>EVERY<br>LAYER</h1>
-    <p>BEL — Independent Web Radio</p>
-  </div>
+  <h1>BREAK<br>EVERY<br>LAYER</h1>
 </div>
 
 <div class="player">
-  <span>Now Playing: BEL Simulated Stream</span>
+  <span>Now Playing</span>
   <button onclick="alert('Stream belum terhubung')">PLAY</button>
 </div>
 
