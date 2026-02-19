@@ -59,22 +59,17 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .title-info b { font-size: 11px; display: block; text-transform: uppercase; font-weight: 700; }
 .title-info span { font-size: 9px; opacity: 0.7; font-weight: 400; }
 
+/* JAJARAN KANAN */
 .player-right { display: flex; align-items: center; height: 100%; }
 .icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
 .icon-group span { cursor: pointer; font-size: 16px; font-weight: 700; display: flex; align-items: center; transition: 0.2s; color: #000; }
 .icon-group span:hover { opacity: 0.5; }
 
-/* KUNCI WARNA SHARE KE HITAM */
+/* Share Warna Hitam Pekat */
 .share-icon { color: #000 !important; opacity: 1 !important; }
 
-/* INTERAKSI LIKE TANPA UBAH ICON */
-#like-btn { 
-    opacity: 0.3; /* Default agak transparan (abu-abu visual) */
-    transition: 0.2s; 
-}
-#like-btn.active { 
-    opacity: 1; /* Langsung jadi Hitam Pekat pas di-klik */
-}
+/* Interaksi Like: Default Line -> Clicked Block */
+#like-btn { transition: 0.1s; }
 
 .divider { width: 1px; height: 100%; background: #000; opacity: 0.1; } 
 
@@ -139,7 +134,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 </div>
 
 <script>
-  // Logika Play/Stop
+  // Play/Stop Toggle
   const smallBtn = document.getElementById('toggle-small');
   const bottomBtn = document.getElementById('toggle-bottom');
   let isPlaying = false;
@@ -158,10 +153,17 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   smallBtn.addEventListener('click', handleToggle);
   bottomBtn.addEventListener('click', handleToggle);
 
-  // LOGIKA LIKE WARNA ITEM PEKAT
+  // LOGIKA LIKE: LINE -> BLOCK HITAM
   const likeBtn = document.getElementById('like-btn');
+  let isLiked = false;
+
   likeBtn.addEventListener('click', function() {
-    this.classList.toggle('active');
+    isLiked = !isLiked;
+    if (isLiked) {
+      this.innerHTML = '♥'; // Menjadi blok hitam penuh
+    } else {
+      this.innerHTML = '♡'; // Kembali ke garis luar
+    }
   });
 </script>
 
