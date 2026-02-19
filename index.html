@@ -28,7 +28,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; transition: 0.2s; }
 .menu-links a:hover { color: #888; }
 
-/* SEARCH: LOGO BALIK LAGI */
 .search-container { display: flex; align-items: center; padding-left: 15px; margin-left: 5px; height: 24px; border-left: 1px solid #fff; }
 .search-wrapper { display: flex; align-items: center; gap: 8px; }
 .search-input { background: transparent; border: none; border-bottom: 1px solid #fff; color: #fff; font-size: 12px; width: 80px; outline: none; transition: 0.4s; -webkit-user-select: text; user-select: text; }
@@ -43,13 +42,14 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .current-show { padding: 0 15px; font-size: 11px; font-weight: 700; display: flex; align-items: center; text-transform: uppercase; }
 .btn-toggle-small { cursor: pointer; margin-right: 12px; width: 14px; display: flex; justify-content: center; }
 
-/* ================= HERO ================= */
+/* ================= HERO (DESKRIPSI BALIK LENGKAP) ================= */
 .hero{ position:relative; height:100vh; background:url(https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg) center/cover; display:flex; align-items:flex-end; padding:60px; filter: grayscale(100%); }
 .overlay{ position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,1) 5%, rgba(0,0,0,0.2)); }
 
 .hero-content { position: relative; margin-bottom: 80px; max-width: 500px; }
 .hero h2 { font-size: 85px; font-weight: 800; line-height: 0.8; letter-spacing: -5px; text-transform: uppercase; margin-bottom: 10px; margin-left: -4px; }
 .worldwide-label { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0px; margin-bottom: 25px; }
+/* Deskripsi Lengkap */
 .hero-description { font-size: 13px; line-height: 1.6; opacity: 0.6; font-weight: 400; max-width: 420px; }
 
 /* ================= ARCHIVE SECTION ================= */
@@ -90,11 +90,8 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
 .icon-group span { cursor: pointer; color: #fff; display: flex; align-items: center; font-weight: 700; transition: 0.2s; }
 
-/* LIKE ICON UKURAN NORMAL */
-#like-btn { font-size: 22px; }
-
-/* SHARE ICON WARNA PUTIH */
-.share-icon { font-size: 18px; filter: brightness(0) invert(1); opacity: 1; color: #fff; }
+#like-btn { font-size: 22px; } /* Like Ukuran Normal */
+.share-icon { color: #fff; font-size: 18px; } /* Share Putih */
 
 .divider { width: 1px; height: 100%; background: #fff; opacity: 0.2; } 
 .close-btn { padding: 0 20px; font-size: 18px; cursor: pointer; border-left: 1px solid #fff; opacity: 0.4; height: 100%; display: flex; align-items: center; transition: 0.3s; }
@@ -115,7 +112,8 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
       <div class="search-container">
         <div class="search-wrapper">
           <input type="text" class="search-input">
-          <div class="search-icon" title="Search"></div> </div>
+          <div class="search-icon" title="Search"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -133,7 +131,9 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="hero-content">
         <h2>RAT<br>RADIO</h2>
         <p class="worldwide-label">WORLDWIDE</p>
-        <p class="hero-description">RAT Radio is a global broadcasting platform and digital archive dedicated to the art of selection.</p>
+        <p class="hero-description">
+            RAT Radio is a global broadcasting platform and digital archive dedicated to the art of selection. We operate as a fluid space for musical exploration, connecting listeners with the most compelling sounds from across the spectrum.
+        </p>
     </div>
 </div>
 
@@ -179,13 +179,15 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="divider"></div>
     <div class="icon-group">
         <span id="like-btn">♡</span>
-        <span class="share-icon">🔗</span> <span>☰</span>
+        <span class="share-icon">🔗</span>
+        <span>☰</span>
     </div>
     <div class="close-btn" id="close-player">✕</div>
   </div>
 </div>
 
 <script>
+  // Script tetap sama dengan fitur Player yang berfungsi
   const smallBtn = document.getElementById('toggle-small');
   const bottomBtn = document.getElementById('toggle-bottom');
   const playerBar = document.getElementById('main-player');
