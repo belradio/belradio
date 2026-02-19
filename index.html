@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* TOP NAV */
+/* NAVBAR */
 .nav {
   position: fixed;
   top: 0;
@@ -34,25 +34,31 @@ body {
   z-index: 1000;
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 20px;
-  letter-spacing: 2px;
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.left span {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.live {
+  color: #ff0000;
+}
+
+.brand {
+  margin-left: 15px;
 }
 
 .menu span {
   margin-left: 30px;
   font-size: 13px;
-  cursor: pointer;
-  color: #fff;
-}
-
-.live {
-  color: #ff0000;
-  font-size: 12px;
-  font-weight: bold;
-  margin-right: 15px;
+  font-weight: 700;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 
 /* HERO */
@@ -65,7 +71,7 @@ body {
 }
 
 .hero h1 {
-  font-size: 100px;
+  font-size: 110px;
   line-height: 0.9;
   font-weight: 900;
 }
@@ -84,18 +90,20 @@ body {
   border-top: 1px solid #fff;
 }
 
+.player span {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
 .player button {
   padding: 8px 22px;
   background: #fff;
   color: #000;
   border: none;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 700;
   font-family: inherit;
-}
-
-.player span {
-  font-size: 14px;
 }
 </style>
 </head>
@@ -103,9 +111,9 @@ body {
 <body>
 
 <div class="nav">
-  <div>
+  <div class="left">
     <span class="live">● LIVE</span>
-    <span class="logo">BEL RADIO</span>
+    <span class="brand">BEL RADIO</span>
   </div>
   <div class="menu">
     <span>RADIO</span>
@@ -120,7 +128,7 @@ body {
 </div>
 
 <div class="player">
-  <span>Now Playing</span>
+  <span>NOW PLAYING: BEL SIMULATED STREAM</span>
   <button onclick="alert('Stream belum terhubung')">PLAY</button>
 </div>
 
