@@ -21,7 +21,6 @@ body{
 }
 
 /* ================= HEADER CONTAINER ================= */
-
 .header-container {
   position: fixed;
   top: 0;
@@ -39,7 +38,6 @@ body{
   padding: 0 15px;
 }
 
-/* LOGO SECTION - Diperbesar secara maksimal */
 .logo-main {
   display: flex;
   align-items: center;
@@ -47,14 +45,9 @@ body{
 }
 
 .logo-main img {
-  height: 46px; /* Hampir menyentuh garis (48px) agar terlihat besar */
+  height: 46px; 
   width: auto;
   display: block;
-  transition: 0.3s;
-}
-
-.logo-main img:hover {
-  transform: scale(1.05); /* Efek zoom dikit pas di-hover */
 }
 
 .nav-right-side {
@@ -110,10 +103,7 @@ body{
   width: 100px;
   padding: 0;
   outline: none;
-  transition: width 0.3s ease;
 }
-
-.search-input:focus { width: 140px; }
 
 .search-icon {
   width: 13px;
@@ -122,7 +112,6 @@ body{
   border-radius: 50%;
   position: relative;
   margin-bottom: 2px;
-  flex-shrink: 0;
 }
 
 .search-icon::after {
@@ -137,7 +126,6 @@ body{
 }
 
 /* ================= NAV LIVE ================= */
-
 .nav-live {
   height: 32px; 
   background: #000;
@@ -173,10 +161,20 @@ body{
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+/* Tombol Play Kecil */
+#play-toggle-small {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 12px;
+  width: 20px;
+  display: inline-block;
 }
 
 /* ================= HERO & PLAYER ================= */
-
 .hero{
   position:relative;
   height:100vh;
@@ -197,6 +195,23 @@ body{
   max-width:600px;
   margin-bottom: 80px; 
 }
+
+/* Tombol Play Besar */
+.play-btn-main {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+
+.play-btn-main:hover { transform: scale(1.1); background: red; color: #fff; }
 
 .hero h2{
   font-size: 80px; 
@@ -259,13 +274,17 @@ body{
 
   <div class="nav-live">
     <div class="live-label">Live Now <span>●</span></div>
-    <div class="current-show">▶ BASEMENT SESSIONS W/ DIRTY CAT</div>
+    <div class="current-show">
+      <span id="play-toggle-small">▶</span> 
+      BASEMENT SESSIONS W/ DIRTY CAT
+    </div>
   </div>
 </div>
 
 <div class="hero">
   <div class="overlay"></div>
   <div class="hero-content">
+    <div class="play-btn-main" id="play-main">▶</div>
     <h2>RAT<br>RADIO</h2>
     <p>Broadcasting the unrefined sounds from the basement. Industrial, Post-Punk, and Noise Archive.</p>
   </div>
@@ -284,6 +303,30 @@ body{
     <div style="cursor: pointer;">✕</div>
   </div>
 </div>
+
+<script>
+  const btnSmall = document.getElementById('play-toggle-small');
+  const btnMain = document.getElementById('play-main');
+  let isPlaying = false;
+
+  function togglePlay() {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      btnSmall.innerText = '┃┃';
+      btnMain.innerText = '┃┃';
+      console.log("Radio Playing...");
+      // Di sini nanti bisa ditambah kode audio.play()
+    } else {
+      btnSmall.innerText = '▶';
+      btnMain.innerText = '▶';
+      console.log("Radio Paused.");
+      // Di sini nanti bisa ditambah kode audio.pause()
+    }
+  }
+
+  btnSmall.addEventListener('click', togglePlay);
+  btnMain.addEventListener('click', togglePlay);
+</script>
 
 </body>
 </html>
