@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BEL Radio</title>
+<title>RAT RADIO | Underground Stream</title>
 
 <style>
 *{
@@ -64,12 +64,14 @@ body{
   display:flex;
   align-items:center;
   height:100%;
+  letter-spacing: 2px;
 }
 
 .show{
   padding:0 20px;
   font-size:13px;
   font-weight:700;
+  text-transform: uppercase;
 }
 
 /* ================= HERO ================= */
@@ -86,7 +88,7 @@ body{
 .overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+  background:linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
 }
 
 .hero-content{
@@ -110,12 +112,14 @@ body{
 
 .play-btn:hover{
   transform:scale(1.1);
+  background: #ff0000; /* Sedikit aksen merah saat hover biar lebih 'RAT' */
 }
 
 .hero h2{
-  font-size:42px;
+  font-size:52px; /* Diperbesar sedikit biar lebih bold */
   font-weight:900;
   margin-bottom:10px;
+  line-height: 1;
 }
 
 .genre{
@@ -140,7 +144,7 @@ body{
 .progress .bar{
   flex:1;
   height:2px;
-  background:#555;
+  background:#333;
   position:relative;
 }
 
@@ -148,7 +152,7 @@ body{
   content:"";
   position:absolute;
   height:100%;
-  width:50%;
+  width:65%; /* Progress simulasi */
   background:#fff;
 }
 
@@ -159,7 +163,7 @@ body{
   bottom:0;
   width:100%;
   height:80px;
-  background:#eaeaea;
+  background:#fff; /* Putih kontras tinggi */
   color:#000;
   display:flex;
   justify-content:space-between;
@@ -178,6 +182,7 @@ body{
   width:55px;
   height:55px;
   object-fit:cover;
+  border: 1px solid #000;
 }
 
 .play{
@@ -188,17 +193,14 @@ body{
   transition:0.2s;
 }
 
-.play:hover{
-  transform:scale(1.15);
-}
-
 .track-info .title{
   font-weight:700;
   font-size:15px;
 }
 
 .track-info .date{
-  font-size:12px;
+  font-size:11px;
+  text-transform: uppercase;
   opacity:0.6;
 }
 
@@ -214,76 +216,57 @@ body{
   transition:0.2s ease;
 }
 
-.icon:hover{
-  transform:scale(1.2);
-  opacity:0.7;
-}
-
 .upnext{
-  font-weight:700;
-  font-size:16px;
+  font-weight:900;
+  font-size:14px;
   letter-spacing:0.5px;
   cursor:pointer;
-  transition:0.2s;
-}
-
-.upnext:hover{
-  opacity:0.7;
 }
 
 .close{
   font-size:20px;
   cursor:pointer;
-  transition:0.2s;
-}
-
-.close:hover{
-  transform:scale(1.2);
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="nav">
   <div class="nav-left">
     <div class="live">LIVE NOW <span>●</span></div>
-    <div class="channel">01</div>
-    <div class="show">NOISE IN MY HEAD</div>
+    <div class="channel">RAT-01</div> <div class="show">Basement Sessions</div>
   </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <div class="overlay"></div>
 
   <div class="hero-content">
     <div class="play-btn">▶</div>
 
-    <h2>NASHPAINTS</h2>
-    <div class="genre">INDIE ROCK · SHOEGAZE · ELECTRONICA</div>
+    <h2>RAT RADIO</h2>
+    <div class="genre">POST-PUNK · INDUSTRIAL · NOISE</div>
 
     <p>
-      Dreampop, shoegaze, and beyond with Irish songwriter Nashpaints.
+      Broadcasting from the shadows. Curating the best in alternative, raw, and unrefined sounds.
     </p>
 
     <div class="progress">
       <div class="bar"></div>
-      <span>7 / 14</span>
+      <span>09 / 15</span>
     </div>
   </div>
 </div>
 
-<!-- PLAYER -->
 <div class="player">
 
   <div class="player-left">
     <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2">
     <button class="play">▶</button>
     <div class="track-info">
-      <div class="title">TEARS IN THE CLUB W/ JEUNE POUCE</div>
-      <div class="date">23 Jan 2026</div>
+      <div class="title">IN THE SEWER W/ DIRTY CAT</div>
+      <div class="date">19 Feb 2026</div>
     </div>
   </div>
 
