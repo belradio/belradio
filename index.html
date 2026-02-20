@@ -42,7 +42,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .btn-toggle-small { cursor: pointer; margin-right: 12px; width: 14px; display: flex; justify-content: center; }
 .stop-square-small { width: 10px; height: 10px; background: #fff; }
 
-/* ================= HERO (KEMBALI KE AWAL) ================= */
+/* ================= HERO ================= */
 .hero{ position:relative; height:100vh; background:url(https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg) center/cover; display:flex; align-items:flex-end; padding:60px; filter: grayscale(100%); }
 .overlay{ position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,1) 5%, rgba(0,0,0,0.2)); }
 .hero-content { position: relative; margin-bottom: 80px; max-width: 500px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
@@ -65,7 +65,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 .archive-info b { display: block; font-size: 14px; text-transform: uppercase; font-weight: 800; margin-bottom: 4px; color: #fff; }
 .archive-info span { font-size: 11px; opacity: 0.5; text-transform: uppercase; font-weight: 400; }
 
-/* ================= PLAYER FIXED (INTERAKTIF) ================= */
+/* ================= PLAYER FIXED ================= */
 .player-fixed {
   position: fixed; bottom: 0; width: 100%; height: 55px; 
   background: #000; color: #fff; display: none; 
@@ -107,7 +107,12 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   <div class="nav-top">
     <div class="logo-main"><img src="New%20Project%20(3).png" alt="RAT Radio"></div>
     <div class="nav-right-side">
-      <div class="menu-links"><a href="#">Latest</a><a href="#">Explore</a><a href="#">Shop</a><a href="#">About</a></div>
+      <div class="menu-links">
+          <a href="#archive-pos">Latest</a>
+          <a href="#">Explore</a>
+          <a href="#">Shop</a>
+          <a href="#">About</a>
+      </div>
       <div class="search-container">
         <div class="search-wrapper">
           <input type="text" class="search-input">
@@ -134,7 +139,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     </div>
 </div>
 
-<section class="archive-section">
+<section class="archive-section" id="archive-pos">
     <div class="archive-header"><h3>Archive</h3><a href="#">View All ↗</a></div>
     <div class="archive-grid">
         <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026', 'https://i.pinimg.com/736x/4a/95/38/4a9538d1ecde6f01fca8fd9c89f1ab9f.jpg')">
@@ -178,6 +183,13 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 </div>
 
 <script>
+  // SCRIPT REFRESH KE ATAS (HOME)
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
+  // LOGIC PLAYER ASLI (TIDAK BERUBAH)
   const smallBtn = document.getElementById('toggle-small');
   const bottomBtn = document.getElementById('toggle-bottom');
   const playerBar = document.getElementById('main-player');
@@ -222,7 +234,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     bottomCover.src = img;
   }
 
-  // PROGRESS BAR LOGIC (DRAG & AUTO)
   setInterval(() => {
     if(isPlaying && !isDragging && currentProgress < 100) {
       currentProgress += 0.05;
