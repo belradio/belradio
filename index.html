@@ -170,10 +170,18 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   const playerTitle = document.getElementById('player-title');
   const playerSub = document.getElementById('player-sub');
   const bottomCover = document.getElementById('bottom-cover');
+  const liveTextSource = document.getElementById('live-text-source').innerText;
   
   let isPlaying = false; 
   let playerVisible = false;
   let isLiveMode = false; 
+
+  // Data default untuk siaran LIVE
+  const liveData = {
+    title: liveTextSource,
+    sub: "LIVE NOW",
+    img: "https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg" // Cover default live lo
+  };
 
   function showPlayer() {
     if (!playerVisible) {
@@ -187,36 +195,50 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     const stopS = '<div class="stop-square-small"></div>';
     const stopB = '<div class="stop-square-bottom"></div>';
     bottomBtn.innerHTML = isPlaying ? stopB : '▶';
-    if (isPlaying && isLiveMode) {
-        smallBtn.innerHTML = stopS;
-    } else {
-        smallBtn.innerHTML = '▶';
-    }
+    smallBtn.innerHTML = (isPlaying && isLiveMode) ? stopS : '▶';
   }
 
+  // FIXED: Fungsi untuk update isi player (judul, sub, cover)
+  function updatePlayerContent(title, sub, img) {
+    playerTitle.innerText = title;
+    playerSub.innerText = sub;
+    bottomCover.src = img;
+  }
+
+  // Klik Header (Live)
   smallBtn.addEventListener('click', () => {
-    isPlaying = !isPlaying;
-    isLiveMode = isPlaying; 
+    // Kalau sebelumnya lagi denger archive atau lagi mati, pas klik live harus ganti isi player
+    if (!isLiveMode || !isPlaying) {
+        updatePlayerContent(liveData.title, liveData.sub, liveData.img);
+        isPlaying = true;
+        isLiveMode = true;
+    } else {
+        // Kalau emang udah lagi live, baru dia fungsinya stop
+        isPlaying = false;
+        isLiveMode = false;
+    }
+    
     if (isPlaying) showPlayer();
     updatePlayIcons();
   });
 
+  // Klik Footer
   bottomBtn.addEventListener('click', () => {
     isPlaying = !isPlaying;
     if (!isPlaying) isLiveMode = false;
     updatePlayIcons();
   });
 
+  // Klik Archive
   function changeTrack(title, sub, imgSrc) {
-    playerTitle.innerText = title;
-    playerSub.innerText = sub;
-    bottomCover.src = imgSrc; 
+    updatePlayerContent(title, sub, imgSrc);
     isPlaying = true;
-    isLiveMode = false; 
+    isLiveMode = false; // Karena archive, mode live mati
     showPlayer();
     updatePlayIcons();
   }
 
+  // ... (Like & Close button tetap sama)
   const likeBtn = document.getElementById('like-btn');
   let isLiked = false;
   likeBtn.addEventListener('click', function() {
@@ -234,6 +256,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
         updatePlayIcons();
     }, 400);
   });
+</script>
 </script>
 
 </body>
