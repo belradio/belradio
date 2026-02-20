@@ -415,131 +415,94 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 
 
 <script>
-
   const smallBtn = document.getElementById('toggle-small');
-
   const bottomBtn = document.getElementById('toggle-bottom');
-
   const playerBar = document.getElementById('main-player');
-
   const playerTitle = document.getElementById('player-title');
-
   const playerSub = document.getElementById('player-sub');
-
   const bottomCover = document.getElementById('bottom-cover');
-
   
-
   let isPlaying = false; 
-
   let playerVisible = false;
-
-
+  let isLiveMode = false; // Flag baru untuk cek apakah lagi denger Live atau Archive
 
   function showPlayer() {
-
     if (!playerVisible) {
-
         playerBar.style.display = 'flex';
-
-        // Delay dikit supaya transisi CSS jalan setelah display berubah
-
         setTimeout(() => {
-
             playerBar.style.transform = 'translateY(0)';
-
         }, 10);
-
         playerVisible = true;
-
     }
-
   }
 
-
-
+  // Fungsi update icon yang sekarang lebih pinter
   function updatePlayIcons() {
-
     const stopS = '<div class="stop-square-small"></div>';
-
     const stopB = '<div class="stop-square-bottom"></div>';
-
-    smallBtn.innerHTML = isPlaying ? stopS : '▶';
-
+    
+    // Tombol Footer selalu ngikutin status isPlaying
     bottomBtn.innerHTML = isPlaying ? stopB : '▶';
 
+    // Tombol Header HANYA berubah jadi stop kalau isPlaying DAN isLiveMode aktif
+    if (isPlaying && isLiveMode) {
+        smallBtn.innerHTML = stopS;
+    } else {
+        smallBtn.innerHTML = '▶';
+    }
   }
 
-
-
-  function handleToggle() {
-
+  // Handle Play/Stop dari Header (Mode Live)
+  function handleToggleHeader() {
     isPlaying = !isPlaying;
-
-    if (isPlaying) showPlayer(); // Munculin bar kalau dipencet play
-
+    isLiveMode = isPlaying; // Kalau header dipencet, otomatis masuk mode Live
+    if (isPlaying) showPlayer();
     updatePlayIcons();
-
   }
 
+  // Handle Play/Stop dari Footer (Bisa Live/Archive)
+  function handleToggleFooter() {
+    isPlaying = !isPlaying;
+    // Kalau dimatiin dari footer, Live mode juga mati
+    if (!isPlaying) isLiveMode = false; 
+    updatePlayIcons();
+  }
 
-
+  // Handle Play dari Archive (Bukan Live)
   function changeTrack(title, sub, imgSrc) {
-
     playerTitle.innerText = title;
-
     playerSub.innerText = sub;
-
     bottomCover.src = imgSrc; 
-
+    
     isPlaying = true;
-
-    showPlayer(); // Munculin bar kalau pilih lagu di archive
-
+    isLiveMode = false; // Penting: Mode Live dimatikan karena pilih Archive
+    
+    showPlayer();
     updatePlayIcons();
-
   }
 
+  // Event Listeners yang dipisahkan fungsinya
+  smallBtn.addEventListener('click', handleToggleHeader);
+  bottomBtn.addEventListener('click', handleToggleFooter);
 
-
-  smallBtn.addEventListener('click', handleToggle);
-
-  bottomBtn.addEventListener('click', handleToggle);
-
-
-
+  // Bagian Like & Close tetap sama
   const likeBtn = document.getElementById('like-btn');
-
   let isLiked = false;
-
   likeBtn.addEventListener('click', function() {
-
     isLiked = !isLiked; this.innerHTML = isLiked ? '♥' : '♡';
-
   });
-
-
 
   const closeBtn = document.getElementById('close-player');
-
   closeBtn.addEventListener('click', function() {
-
     playerBar.style.transform = 'translateY(100%)';
-
     setTimeout(() => { 
-
         playerBar.style.display = 'none'; 
-
         playerVisible = false;
-
         isPlaying = false; 
-
+        isLiveMode = false;
         updatePlayIcons();
-
     }, 400);
-
   });
-
 </script>
 
 
