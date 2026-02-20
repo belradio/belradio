@@ -139,6 +139,10 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
             <div class="img-box"><img src="https://i.pinimg.com/736x/7c/bd/5b/7cbd5bb67223f8b541c2b5d7cc066b1d.jpg" alt="Archive"></div>
             <div class="archive-info"><b>Concrete Jungle</b><span>Vex — 01 Feb 2026</span></div>
         </div>
+        <div class="archive-item" onclick="changeTrack('UNDERGROUND ECHO', 'LOST SIGNAL — 28 JAN 2026', 'https://i.pinimg.com/736x/b9/99/c9/b999c9c9da549cc9525a78911676c70e.jpg')">
+            <div class="img-box"><img src="https://i.pinimg.com/736x/b9/99/c9/b999c9c9da549cc9525a78911676c70e.jpg" alt="Archive"></div>
+            <div class="archive-info"><b>Underground Echo</b><span>Lost Signal — 28 Jan 2026</span></div>
+        </div>
     </div>
 </section>
 
@@ -182,11 +186,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   function updatePlayIcons() {
     const stopS = '<div class="stop-square-small"></div>';
     const stopB = '<div class="stop-square-bottom"></div>';
-    
-    // Tombol bawah selalu ikut status play
     bottomBtn.innerHTML = isPlaying ? stopB : '▶';
-
-    // Tombol header HANYA stop kalau lagi denger Live
     if (isPlaying && isLiveMode) {
         smallBtn.innerHTML = stopS;
     } else {
@@ -194,7 +194,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     }
   }
 
-  // Klik Header = Live Mode
   smallBtn.addEventListener('click', () => {
     isPlaying = !isPlaying;
     isLiveMode = isPlaying; 
@@ -202,22 +201,18 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     updatePlayIcons();
   });
 
-  // Klik Footer = Play/Pause Lagu yang sedang aktif
   bottomBtn.addEventListener('click', () => {
     isPlaying = !isPlaying;
     if (!isPlaying) isLiveMode = false;
     updatePlayIcons();
   });
 
-  // Klik Archive = Footer muncul, Header tetap PLAY
   function changeTrack(title, sub, imgSrc) {
     playerTitle.innerText = title;
     playerSub.innerText = sub;
     bottomCover.src = imgSrc; 
-    
     isPlaying = true;
-    isLiveMode = false; // Mode archive bukan live
-    
+    isLiveMode = false; 
     showPlayer();
     updatePlayIcons();
   }
