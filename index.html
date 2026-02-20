@@ -110,7 +110,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     <div class="live-label">Live Now <span>●</span></div>
     <div class="current-show">
         <div class="btn-toggle-small" id="toggle-small">▶</div> 
-        <span>BASEMENT SESSIONS W/ DIRTY CAT</span>
+        <span id="live-text-source">BASEMENT SESSIONS W/ DIRTY CAT</span>
     </div>
   </div>
 </div>
@@ -170,17 +170,16 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   const playerTitle = document.getElementById('player-title');
   const playerSub = document.getElementById('player-sub');
   const bottomCover = document.getElementById('bottom-cover');
-  const liveTextSource = document.getElementById('live-text-source').innerText;
+  const liveLabelText = document.getElementById('live-text-source').innerText;
   
   let isPlaying = false; 
   let playerVisible = false;
   let isLiveMode = false; 
 
-  // Data default untuk siaran LIVE
   const liveData = {
-    title: liveTextSource,
+    title: liveLabelText,
     sub: "LIVE NOW",
-    img: "https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg" // Cover default live lo
+    img: "https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg"
   };
 
   function showPlayer() {
@@ -198,27 +197,25 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     smallBtn.innerHTML = (isPlaying && isLiveMode) ? stopS : '▶';
   }
 
-  // FIXED: Fungsi untuk update isi player (judul, sub, cover)
   function updatePlayerContent(title, sub, img) {
     playerTitle.innerText = title;
     playerSub.innerText = sub;
     bottomCover.src = img;
   }
 
-  // Klik Header (Live)
+  // LOGIKA UTAMA: Klik Header
   smallBtn.addEventListener('click', () => {
-    // Kalau sebelumnya lagi denger archive atau lagi mati, pas klik live harus ganti isi player
+    // Jika sedang dengerin Archive atau sedang mati, langsung pindah ke LIVE
     if (!isLiveMode || !isPlaying) {
         updatePlayerContent(liveData.title, liveData.sub, liveData.img);
         isPlaying = true;
         isLiveMode = true;
+        showPlayer();
     } else {
-        // Kalau emang udah lagi live, baru dia fungsinya stop
+        // Jika sedang LIVE dan dipencet lagi, baru mati
         isPlaying = false;
         isLiveMode = false;
     }
-    
-    if (isPlaying) showPlayer();
     updatePlayIcons();
   });
 
@@ -233,12 +230,11 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   function changeTrack(title, sub, imgSrc) {
     updatePlayerContent(title, sub, imgSrc);
     isPlaying = true;
-    isLiveMode = false; // Karena archive, mode live mati
+    isLiveMode = false; 
     showPlayer();
     updatePlayIcons();
   }
 
-  // ... (Like & Close button tetap sama)
   const likeBtn = document.getElementById('like-btn');
   let isLiked = false;
   likeBtn.addEventListener('click', function() {
@@ -256,7 +252,6 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
         updatePlayIcons();
     }, 400);
   });
-</script>
 </script>
 
 </body>
