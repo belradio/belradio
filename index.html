@@ -143,35 +143,99 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   </div>
 </div>
 
+<style>
+/* NTS STYLE HERO OVERRIDE */
+.hero {
+    position: relative;
+    height: 90vh; /* Lebih tinggi biar sinematik */
+    background: url(https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg) center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 0; /* Padding kita pindahin ke box */
+}
+
+.hero-info-box {
+    background: #000;
+    padding: 30px;
+    margin-left: 60px;
+    margin-bottom: 60px;
+    max-width: 450px;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-play-btn {
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.hero-play-btn::after {
+    content: "";
+    border-style: solid;
+    border-width: 8px 0 8px 14px;
+    border-color: transparent transparent transparent #000;
+}
+
+.hero-info-box h2 {
+    font-size: 32px; /* Lebih kecil tapi Bold ala NTS box */
+    font-weight: 900;
+    letter-spacing: 0;
+    margin-bottom: 5px;
+}
+
+.hero-genres {
+    font-size: 11px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.hero-description {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Navigasi Kanan Bawah */
+.hero-nav {
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-family: monospace;
+}
+.hero-nav span { cursor: pointer; font-size: 18px; }
+</style>
+
 <div class="hero">
     <div class="overlay"></div>
-    <div class="hero-content">
-        <h2>RAT<br>RADIO</h2>
-        <p class="worldwide-label">WORLDWIDE</p>
-        <p class="hero-description">RAT Radio is a global broadcasting platform and digital archive dedicated to the art of selection. We operate as a fluid space for musical exploration, connecting listeners with the most compelling sounds from across the spectrum.</p>
+    
+    <div class="hero-info-box">
+        <div class="hero-play-btn"></div>
+        <span class="hero-genres">SOUL · R&B · CLASSICAL</span>
+        <h2>YOKO KANNO</h2>
+        <p class="hero-description">Selections from the legendary anime composer.</p>
+    </div>
+
+    <div class="hero-nav">
+        <span>3 / 14</span>
+        <div style="display:flex; gap:15px;">
+            <span><</span>
+            <span>II</span>
+            <span>></span>
+        </div>
     </div>
 </div>
-
-<section class="archive-section">
-    <div class="archive-header"><h3>Archive</h3><a href="#" title="View all archives">View All ↗</a></div>
-    <div class="archive-grid">
-        <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026', 'https://i.pinimg.com/736x/4a/95/38/4a9538d1ecde6f01fca8fd9c89f1ab9f.jpg')">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/4a/95/38/4a9538d1ecde6f01fca8fd9c89f1ab9f.jpg" alt="Archive"></div>
-            <div class="archive-info"><b>The Sewer Ghost</b><span>Ghostface — 12 Feb 2026</span></div>
-        </div>
-        <div class="archive-item" onclick="changeTrack('NIGHT SHIFT', 'MALIK — 08 FEB 2026', 'https://i.pinimg.com/1200x/53/07/9f/53079fd51d47cc2853837bca36065fd9.jpg')">
-            <div class="img-box"><img src="https://i.pinimg.com/1200x/53/07/9f/53079fd51d47cc2853837bca36065fd9.jpg" alt="Archive"></div>
-            <div class="archive-info"><b>Night Shift</b><span>Malik — 08 Feb 2026</span></div>
-        </div>
-        <div class="archive-item" onclick="changeTrack('CONCRETE JUNGLE', 'VEX — 01 FEB 2026', 'https://i.pinimg.com/736x/7c/bd/5b/7cbd5bb67223f8b541c2b5d7cc066b1d.jpg')">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/7c/bd/5b/7cbd5bb67223f8b541c2b5d7cc066b1d.jpg" alt="Archive"></div>
-            <div class="archive-info"><b>Concrete Jungle</b><span>Vex — 01 Feb 2026</span></div>
-        </div>
-        <div class="archive-item" onclick="changeTrack('UNDERGROUND ECHO', 'LOST SIGNAL — 28 JAN 2026', 'https://i.pinimg.com/736x/b9/99/c9/b999c9c9da549cc9525a78911676c70e.jpg')">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/b9/99/c9/b999c9c9da549cc9525a78911676c70e.jpg" alt="Archive"></div>
-            <div class="archive-info"><b>Underground Echo</b><span>Lost Signal — 28 Jan 2026</span></div>
-        </div>
-    </div>
 </section>
 
 <div class="player-fixed" id="main-player">
