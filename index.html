@@ -77,13 +77,20 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-/* PROGRESS BAR */
+/* PROGRESS BAR DENGAN BULATAN (THUMB) */
 .progress-container {
-    position: absolute; top: -2px; left: 0; width: 100%; height: 4px;
+    position: absolute; top: -3px; left: 0; width: 100%; height: 6px;
     background: rgba(255,255,255,0.1); cursor: pointer;
+    display: flex; align-items: center;
 }
 .progress-bar {
-    height: 100%; background: #fff; width: 0%; transition: width 0.1s linear;
+    height: 100%; background: #fff; width: 0%; position: relative; transition: width 0.1s linear;
+}
+/* Bulatan di ujung line */
+.progress-bar::after {
+    content: ""; position: absolute; right: -5px; top: 50%; 
+    transform: translateY(-50%); width: 10px; height: 10px; 
+    background: #fff; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 .player-left { display: flex; align-items: center; padding-left: 20px; gap: 15px; }
@@ -122,7 +129,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
       </div>
       <div class="search-container">
         <div class="search-wrapper">
-          <input type="text" class="search-input" placeholder="Search...">
+          <input type="text" class="search-input">
           <div class="search-icon" title="Search"></div>
         </div>
       </div>
@@ -212,7 +219,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   let isPlaying = false; 
   let playerVisible = false;
   let isLiveMode = false; 
-  let currentProgress = 0; // 0 sampai 100
+  let currentProgress = 0; 
   let progressInterval;
 
   const liveData = {
@@ -225,21 +232,19 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
       clearInterval(progressInterval);
       progressInterval = setInterval(() => {
           if (isPlaying && currentProgress < 100) {
-              currentProgress += 0.1; // Simulasi jalan
+              currentProgress += 0.1; 
               progressBar.style.width = currentProgress + "%";
           }
       }, 100);
   }
 
   function seek(amount) {
-      // Logic buat skip +/- 30 detik (simulasi % karena gapapa ga ada durasi asli)
-      currentProgress += (amount / 2); // 30 detik disimulasiin nambah 15% bar
+      currentProgress += (amount / 2); 
       if (currentProgress < 0) currentProgress = 0;
       if (currentProgress > 100) currentProgress = 100;
       progressBar.style.width = currentProgress + "%";
   }
 
-  // Klik manual di garis buat pindah posisi
   pContainer.addEventListener('click', (e) => {
       const rect = pContainer.getBoundingClientRect();
       const pos = (e.clientX - rect.left) / rect.width;
@@ -269,7 +274,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
     playerTitle.innerText = title;
     playerSub.innerText = sub;
     bottomCover.src = img;
-    currentProgress = 0; // Reset garis pas ganti lagu
+    currentProgress = 0; 
     progressBar.style.width = "0%";
   }
 
