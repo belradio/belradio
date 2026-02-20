@@ -17,111 +17,127 @@
 html { scroll-behavior: smooth; }
 body{ background:#000; color:#fff; overflow-x: hidden; }
 
-/* ================= HEADER & NAV ================= */
+/* ================= HEADER CONTAINER ================= */
 .header-container { position: fixed; top: 0; width: 100%; z-index: 1000; }
 .nav-top { height: 48px; background: #000; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #fff; padding: 0 15px; }
 .logo-main img { height: 46px; cursor: pointer; transition: 0.3s; }
+.logo-main:hover img { transform: scale(1.05); }
 
 .nav-right-side { display: flex; align-items: center; }
-.menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; }
+.menu-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 0 15px; transition: 0.2s; }
+.menu-links a:hover { color: #888; }
 
-.search-input { background: transparent; border: none; border-bottom: 1px solid #fff; color: #fff; font-size: 12px; width: 80px; outline: none; transition: 0.4s; padding-left: 5px; }
-.search-input:focus { width: 120px; }
+.search-container { display: flex; align-items: center; padding-left: 15px; margin-left: 5px; height: 24px; border-left: 1px solid #fff; }
+.search-wrapper { display: flex; align-items: center; gap: 8px; }
+.search-input { background: transparent; border: none; border-bottom: 1px solid #fff; color: #fff; font-size: 12px; width: 80px; outline: none; transition: 0.4s; -webkit-user-select: text; user-select: text; }
+.search-input:focus { width: 140px; }
+.search-icon { width: 13px; height: 13px; border: 1.5px solid #fff; border-radius: 50%; position: relative; cursor: pointer; }
+.search-icon::after { content: ""; position: absolute; width: 1.5px; height: 5px; background: #fff; bottom: -3px; right: -2px; transform: rotate(-45deg); }
 
 .nav-live { height: 32px; background: #000; display: flex; align-items: center; border-bottom: 1px solid #fff; }
-.live-label { background: #fff; color: #000; height: 100%; padding: 0 12px; font-size: 10px; font-weight: 700; display: flex; align-items: center; text-transform: uppercase; }
-.live-label span { color: #ff0000; font-size: 14px; animation: blink 1.5s infinite; margin-left: 5px; } 
+.live-label { background: #fff; color: #000; height: 100%; padding: 0 12px; font-size: 10px; font-weight: 700; display: flex; align-items: center; gap: 6px; text-transform: uppercase; }
+.live-label span { color: #ff0000; font-size: 14px; animation: blink 1.5s infinite; } 
 @keyframes blink { 0%, 100% {opacity:1;} 50% {opacity:0.2;} }
+.current-show { padding: 0 15px; font-size: 11px; font-weight: 700; display: flex; align-items: center; text-transform: uppercase; }
+.btn-toggle-small { cursor: pointer; margin-right: 12px; width: 14px; display: flex; justify-content: center; transition: 0.2s; }
+.btn-toggle-small:hover { opacity: 0.6; }
+.stop-square-small { width: 10px; height: 10px; background: #fff; }
 
 /* ================= HERO ================= */
-.hero{ position:relative; height:80vh; background:url(https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg) center/cover; display:flex; align-items:flex-end; padding:40px; filter: grayscale(100%); }
+.hero{ position:relative; height:100vh; background:url(https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg) center/cover; display:flex; align-items:flex-end; padding:60px; filter: grayscale(100%); }
 .overlay{ position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,1) 5%, rgba(0,0,0,0.2)); }
-.hero-content { position: relative; z-index: 2; }
-.hero h2 { font-size: clamp(40px, 10vw, 85px); font-weight: 800; line-height: 0.8; letter-spacing: -5px; text-transform: uppercase; }
+.hero-content { position: relative; margin-bottom: 80px; max-width: 500px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+.hero h2 { font-size: 85px; font-weight: 800; line-height: 0.8; letter-spacing: -5px; text-transform: uppercase; margin-bottom: 10px; margin-left: -4px; }
+.worldwide-label { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0px; margin-bottom: 25px; }
+.hero-description { font-size: 13px; line-height: 1.6; opacity: 0.6; font-weight: 400; max-width: 420px; }
 
-/* ================= ARCHIVE & FILTER (Fitur 5) ================= */
-.archive-section { padding: 60px 20px; background: #000; }
-.filter-bar { display: flex; gap: 20px; margin-bottom: 30px; overflow-x: auto; padding-bottom: 10px; }
-.filter-btn { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 15px; font-size: 10px; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: 0.3s; white-space: nowrap; }
-.filter-btn.active, .filter-btn:hover { background: #fff; color: #000; }
+/* ================= ARCHIVE SECTION ================= */
+.archive-section { padding: 80px 60px 140px 60px; background: #000; }
+.archive-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; margin-bottom: 40px; }
+.archive-header h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
+.archive-header a { font-size: 11px; font-weight: 700; color: #fff; text-decoration: none; opacity: 0.5; transition: 0.3s; }
+.archive-header a:hover { opacity: 1; }
 
-.archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 30px 20px; }
+.archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 40px 20px; }
 .archive-item { cursor: pointer; transition: 0.3s; }
-.archive-item .img-box { width: 100%; aspect-ratio: 1/1; background: #111; margin-bottom: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.archive-item .img-box { width: 100%; aspect-ratio: 1/1; background: #111; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
 .archive-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+.archive-item:hover { transform: translateY(-8px); }
 .archive-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
+.archive-info b { display: block; font-size: 14px; text-transform: uppercase; font-weight: 800; margin-bottom: 4px; color: #fff; }
+.archive-info span { font-size: 11px; opacity: 0.5; text-transform: uppercase; font-weight: 400; }
 
-/* ================= PLAYER FIXED (Fitur 2 & 3) ================= */
+/* ================= PLAYER FIXED ================= */
 .player-fixed {
-  position: fixed; bottom: 0; width: 100%; height: 65px; 
+  position: fixed; bottom: 0; width: 100%; height: 55px; 
   background: #000; color: #fff; display: none; 
   align-items: center; justify-content: space-between; 
   z-index: 1000; transform: translateY(100%); 
-  transition: transform 0.4s; border-top: 1px solid rgba(255,255,255,0.2);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 .progress-container {
     position: absolute; top: -3px; left: 0; width: 100%; height: 6px;
     background: rgba(255,255,255,0.1); cursor: pointer;
+    display: flex; align-items: center;
 }
-.progress-bar { height: 100%; background: #fff; width: 0%; position: relative; }
+.progress-bar {
+    height: 100%; background: #fff; width: 0%; position: relative; 
+    /* Hapus transition biar pas di-drag ga kerasa delay */
+}
 .progress-bar::after {
-    content: ""; position: absolute; right: -5px; top: 50%; transform: translateY(-50%);
-    width: 10px; height: 10px; background: #fff; border-radius: 50%;
+    content: ""; position: absolute; right: -5px; top: 50%; 
+    transform: translateY(-50%); width: 10px; height: 10px; 
+    background: #fff; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-/* Time Stamp (Fitur 2) */
-.time-stamp { position: absolute; top: 8px; right: 20px; font-size: 9px; font-family: monospace; opacity: 0.6; }
+.player-left { display: flex; align-items: center; padding-left: 20px; gap: 15px; }
+.btn-toggle-bottom { cursor: pointer; font-size: 22px; width: 25px; display: flex; justify-content: center; transition: 0.2s; }
+.btn-toggle-bottom:hover { opacity: 0.6; }
+.stop-square-bottom { width: 14px; height: 14px; background: #fff; } 
+.track-box { display: flex; align-items: center; gap: 12px; }
+.track-box img { width: 38px; height: 38px; border: 1px solid #fff; filter: grayscale(100%); }
+.title-info b { font-size: 12.5px; display: block; text-transform: uppercase; font-weight: 700; line-height: 1.2; }
+.title-info span { font-size: 10px; opacity: 0.7; }
 
-.player-left { display: flex; align-items: center; padding-left: 15px; gap: 12px; max-width: 40%; }
-.track-box img { width: 40px; height: 40px; border: 1px solid #fff; }
-.title-info b { font-size: 11px; display: block; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-.player-right { display: flex; align-items: center; gap: 15px; padding-right: 15px; }
-
-/* ================= TRACKLIST MODAL (Fitur 4) ================= */
-.tracklist-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000;
-    display: none; padding: 60px 20px; overflow-y: auto;
-}
-.tracklist-content { max-width: 600px; margin: 0 auto; }
-.tracklist-content h2 { font-size: 32px; margin-bottom: 30px; border-bottom: 2px solid #fff; padding-bottom: 10px; }
-.track-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
-.close-tracklist { position: fixed; top: 20px; right: 20px; font-size: 30px; cursor: pointer; }
-
-/* RESPONSIVE (Fitur 3) */
-@media (max-width: 768px) {
-    .menu-links { display: none; }
-    .hero { height: 60vh; padding: 20px; }
-    .player-right .icon-group span:not(#like-btn) { display: none; }
-    .up-next-btn { display: none; }
-}
+.player-right { display: flex; align-items: center; height: 100%; }
+.icon-group { display: flex; align-items: center; gap: 20px; padding: 0 20px; }
+.icon-group span { cursor: pointer; color: #fff; font-weight: 700; transition: 0.2s; display: flex; align-items: center; }
+.icon-group span:hover { opacity: 0.5; transform: scale(1.1); }
+#like-btn { font-size: 22px; } 
+.share-icon { font-size: 18px; filter: brightness(0) invert(1); }
+.divider { width: 1px; height: 100%; background: #fff; opacity: 0.2; } 
+.up-next-btn { display: flex; align-items: center; gap: 6px; padding: 0 20px; font-weight: 700; font-size: 11px; color: #fff; text-decoration: none; transition: 0.2s; }
+.up-next-btn:hover { opacity: 0.6; }
+.close-btn { padding: 0 20px; font-size: 18px; cursor: pointer; border-left: 1px solid #fff; opacity: 0.4; height: 100%; display: flex; align-items: center; transition: 0.3s; }
+.close-btn:hover { opacity: 1; background: rgba(255,255,255,0.1); }
 </style>
 </head>
 <body>
 
-<div class="tracklist-overlay" id="tracklist-modal">
-    <div class="close-tracklist" onclick="closeTracklist()">✕</div>
-    <div class="tracklist-content">
-        <p style="font-size: 10px; opacity: 0.5;">NOW PLAYING TRACKLIST</p>
-        <h2 id="modal-title">TITLE</h2>
-        <div id="track-list-items">
-            </div>
-    </div>
-</div>
-
 <div class="header-container">
   <div class="nav-top">
-    <div class="logo-main"><img src="New%20Project%20(3).png" alt="RAT Radio"></div>
+    <div class="logo-main" title="RAT Radio Home"><img src="New%20Project%20(3).png" alt="RAT Radio"></div>
     <div class="nav-right-side">
-      <div class="menu-links"><a href="#">Latest</a><a href="#">Explore</a><a href="#">Shop</a></div>
-      <input type="text" class="search-input">
+      <div class="menu-links">
+          <a href="#" title="Latest Releases">Latest</a>
+          <a href="#" title="Explore Genres">Explore</a>
+          <a href="#" title="Official Shop">Shop</a>
+          <a href="#" title="About Us">About</a>
+      </div>
+      <div class="search-container">
+        <div class="search-wrapper">
+          <input type="text" class="search-input">
+          <div class="search-icon" title="Search"></div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="nav-live">
-    <div class="live-label">LIVE NOW <span>●</span></div>
+    <div class="live-label">Live Now <span>●</span></div>
     <div class="current-show">
-        <div class="btn-toggle-small" id="toggle-small" style="cursor:pointer; margin: 0 10px;">▶</div> 
+        <div class="btn-toggle-small" id="toggle-small" title="Play/Stop Live">▶</div> 
         <span id="live-text-source">BASEMENT SESSIONS W/ DIRTY CAT</span>
     </div>
   </div>
@@ -130,161 +146,190 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
 <div class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-        <h2>RAT RADIO</h2>
-        <p style="font-size: 12px; opacity: 0.6; max-width: 400px; margin-top: 15px;">The art of selection. Worldwide broadcasting from the underground.</p>
+        <h2>RAT<br>RADIO</h2>
+        <p class="worldwide-label">WORLDWIDE</p>
+        <p class="hero-description">RAT Radio is a global broadcasting platform and digital archive dedicated to the art of selection. We operate as a fluid space for musical exploration, connecting listeners with the most compelling sounds from across the spectrum.</p>
     </div>
 </div>
 
 <section class="archive-section">
-    <div class="filter-bar">
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">Techno</button>
-        <button class="filter-btn">Ambient</button>
-        <button class="filter-btn">Hip-Hop</button>
-        <button class="filter-btn">Experimental</button>
-    </div>
-
+    <div class="archive-header"><h3>Archive</h3><a href="#" title="View all archives">View All ↗</a></div>
     <div class="archive-grid">
-        <div class="archive-item" onclick="playArchive('THE SEWER GHOST', 'GHOSTFACE', 'https://i.pinimg.com/736x/4a/95/38/4a9538d1ecde6f01fca8fd9c89f1ab9f.jpg', ['Aphex Twin - Xtal', 'Burial - Archangel', 'Moderat - Bad Kingdom'])">
-            <div class="img-box"><img src="https://i.pinimg.com/736x/4a/95/38/4a9538d1ecde6f01fca8fd9c89f1ab9f.jpg"></div>
-            <div class="archive-info"><b>The Sewer Ghost</b><span>12 Feb 2026</span></div>
+        <div class="archive-item" onclick="changeTrack('THE SEWER GHOST', 'GHOSTFACE — 12 FEB 2026', 'https://i.pinimg.com/736x/4a/95/38/4a9538d1ecde6f01fca8fd9c89f1ab9f.jpg')">
+            <div class="img-box"><img src="https://i.pinimg.com/736x/4a/95/38/4a9538d1ecde6f01fca8fd9c89f1ab9f.jpg" alt="Archive"></div>
+            <div class="archive-info"><b>The Sewer Ghost</b><span>Ghostface — 12 Feb 2026</span></div>
         </div>
-        <div class="archive-item" onclick="playArchive('NIGHT SHIFT', 'MALIK', 'https://i.pinimg.com/1200x/53/07/9f/53079fd51d47cc2853837bca36065fd9.jpg', ['Madvillain - Accordion', 'J Dilla - Time', 'Nujabes - Feather'])">
-            <div class="img-box"><img src="https://i.pinimg.com/1200x/53/07/9f/53079fd51d47cc2853837bca36065fd9.jpg"></div>
-            <div class="archive-info"><b>Night Shift</b><span>08 Feb 2026</span></div>
+        <div class="archive-item" onclick="changeTrack('NIGHT SHIFT', 'MALIK — 08 FEB 2026', 'https://i.pinimg.com/1200x/53/07/9f/53079fd51d47cc2853837bca36065fd9.jpg')">
+            <div class="img-box"><img src="https://i.pinimg.com/1200x/53/07/9f/53079fd51d47cc2853837bca36065fd9.jpg" alt="Archive"></div>
+            <div class="archive-info"><b>Night Shift</b><span>Malik — 08 Feb 2026</span></div>
+        </div>
+        <div class="archive-item" onclick="changeTrack('CONCRETE JUNGLE', 'VEX — 01 FEB 2026', 'https://i.pinimg.com/736x/7c/bd/5b/7cbd5bb67223f8b541c2b5d7cc066b1d.jpg')">
+            <div class="img-box"><img src="https://i.pinimg.com/736x/7c/bd/5b/7cbd5bb67223f8b541c2b5d7cc066b1d.jpg" alt="Archive"></div>
+            <div class="archive-info"><b>Concrete Jungle</b><span>Vex — 01 Feb 2026</span></div>
+        </div>
+        <div class="archive-item" onclick="changeTrack('UNDERGROUND ECHO', 'LOST SIGNAL — 28 JAN 2026', 'https://i.pinimg.com/736x/b9/99/c9/b999c9c9da549cc9525a78911676c70e.jpg')">
+            <div class="img-box"><img src="https://i.pinimg.com/736x/b9/99/c9/b999c9c9da549cc9525a78911676c70e.jpg" alt="Archive"></div>
+            <div class="archive-info"><b>Underground Echo</b><span>Lost Signal — 28 Jan 2026</span></div>
         </div>
     </div>
 </section>
 
 <div class="player-fixed" id="main-player">
-  <div class="progress-container" id="p-cont">
+  <div class="progress-container" id="p-cont" title="Seek">
       <div class="progress-bar" id="p-bar"></div>
   </div>
-  
-  <div class="time-stamp"><span id="curr-time">00:00</span> / <span id="dur-time">60:00</span></div>
 
   <div class="player-left">
-    <div id="toggle-bottom" style="cursor:pointer; font-size:20px;">▶</div>
-    <div class="track-box" style="display:flex; align-items:center; gap:10px; cursor:pointer;" onclick="openTracklist()">
-      <img src="" id="bottom-cover">
-      <div class="title-info"><b id="player-title">TITLE</b><span id="player-sub" style="font-size:9px; opacity:0.6;">SUB</span></div>
+    <div class="btn-toggle-bottom" id="toggle-bottom" title="Play/Pause">▶</div>
+    <div class="track-box">
+      <img src="" alt="Cover" id="bottom-cover">
+      <div class="title-info"><b id="player-title">TITLE</b><span id="player-sub">SUBTITLE</span></div>
     </div>
   </div>
-
   <div class="player-right">
-    <span onclick="seek(-30)" style="cursor:pointer; font-size:12px;">⟲ 30</span>
-    <span onclick="seek(30)" style="cursor:pointer; font-size:12px;">⟳ 30</span>
-    <span id="like-btn" style="cursor:pointer; font-size:18px;">♡</span>
-    <div style="border-left:1px solid #333; height:30px;"></div>
-    <div id="close-player" style="cursor:pointer; opacity:0.5;">✕</div>
+    <div class="icon-group">
+        <span title="Rewind 30s" onclick="seek(-30)">⟲ 30</span>
+        <span title="Forward 30s" onclick="seek(30)">⟳ 30</span>
+        <span style="font-size:24px" title="Soundcloud Mode">☁</span>
+    </div>
+    <div class="divider"></div>
+    <div class="icon-group">
+        <span id="like-btn" title="Add to Favorites">♡</span>
+        <span class="share-icon" title="Share Track">🔗</span>
+        <span title="Menu" class="menu-icon">☰</span>
+    </div>
+    <a href="#" class="up-next-btn" title="Next Up">UP NEXT ▲</a>
+    <div class="close-btn" id="close-player" title="Close Player">✕</div>
   </div>
 </div>
 
 <script>
-  // Elements
   const smallBtn = document.getElementById('toggle-small');
   const bottomBtn = document.getElementById('toggle-bottom');
   const playerBar = document.getElementById('main-player');
   const playerTitle = document.getElementById('player-title');
   const playerSub = document.getElementById('player-sub');
   const bottomCover = document.getElementById('bottom-cover');
+  const liveLabelText = document.getElementById('live-text-source').innerText;
+  
   const progressBar = document.getElementById('p-bar');
   const pContainer = document.getElementById('p-cont');
-  const currTimeTxt = document.getElementById('curr-time');
 
-  // State
-  let isPlaying = false;
-  let currentProgress = 0;
-  let isDragging = false;
-  let activeTracks = [];
+  let isPlaying = false; 
+  let playerVisible = false;
+  let isLiveMode = false; 
+  let currentProgress = 0; 
+  let progressInterval;
+  let isDragging = false; // Flag untuk drag
 
-  // Function: Format Time (Fitur 2)
-  function formatTime(seconds) {
-      let min = Math.floor(seconds / 60);
-      let sec = Math.floor(seconds % 60);
-      return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+  const liveData = {
+    title: liveLabelText,
+    sub: "LIVE NOW",
+    img: "https://i.pinimg.com/736x/bb/02/21/bb022133bdc7fcbea9b48e12a33d8160.jpg"
+  };
+
+  function startProgress() {
+      clearInterval(progressInterval);
+      progressInterval = setInterval(() => {
+          if (isPlaying && currentProgress < 100 && !isDragging) {
+              currentProgress += 0.1; 
+              progressBar.style.width = currentProgress + "%";
+          }
+      }, 100);
   }
-
-  // Function: Play Archive with Tracklist (Fitur 4)
-  function playArchive(title, sub, img, tracks) {
-      playerTitle.innerText = title;
-      playerSub.innerText = sub;
-      bottomCover.src = img;
-      activeTracks = tracks;
-      currentProgress = 0;
-      isPlaying = true;
-      playerBar.style.display = 'flex';
-      setTimeout(() => playerBar.style.transform = 'translateY(0)', 10);
-      updateUI();
-  }
-
-  function updateUI() {
-      bottomBtn.innerHTML = isPlaying ? '■' : '▶';
-      smallBtn.innerHTML = isPlaying ? '■' : '▶';
-  }
-
-  // Progress Logic
-  setInterval(() => {
-      if (isPlaying && !isDragging && currentProgress < 100) {
-          currentProgress += 0.1;
-          progressBar.style.width = currentProgress + "%";
-          currTimeTxt.innerText = formatTime(currentProgress * 36); // Simullasi 1 jam
-      }
-  }, 100);
 
   function seek(amount) {
-      currentProgress += (amount / 10);
-      currentProgress = Math.max(0, Math.min(100, currentProgress));
+      currentProgress += (amount / 2); 
+      if (currentProgress < 0) currentProgress = 0;
+      if (currentProgress > 100) currentProgress = 100;
       progressBar.style.width = currentProgress + "%";
   }
 
-  // Drag Logic (Real-time)
-  pContainer.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      moveProgress(e);
-  });
-  window.addEventListener('mousemove', (e) => { if(isDragging) moveProgress(e); });
-  window.addEventListener('mouseup', () => isDragging = false);
-
-  function moveProgress(e) {
+  // --- REAL-TIME DRAG LOGIC ---
+  function updateFromMouse(e) {
       const rect = pContainer.getBoundingClientRect();
       let pos = (e.clientX - rect.left) / rect.width;
-      currentProgress = Math.max(0, Math.min(1, pos)) * 100;
+      pos = Math.max(0, Math.min(1, pos)); // Clamp antara 0 dan 1
+      currentProgress = pos * 100;
       progressBar.style.width = currentProgress + "%";
-      currTimeTxt.innerText = formatTime(currentProgress * 36);
   }
 
-  // Tracklist Logic (Fitur 4)
-  function openTracklist() {
-      document.getElementById('modal-title').innerText = playerTitle.innerText;
-      const listCont = document.getElementById('track-list-items');
-      listCont.innerHTML = activeTracks.map((t, i) => `
-          <div class="track-item">
-              <span>${i+1}. ${t}</span>
-              <span style="opacity:0.5;">0${i+2}:00</span>
-          </div>
-      `).join('');
-      document.getElementById('tracklist-modal').style.display = 'block';
+  pContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      updateFromMouse(e);
+  });
+
+  window.addEventListener('mousemove', (e) => {
+      if (isDragging) updateFromMouse(e);
+  });
+
+  window.addEventListener('mouseup', () => {
+      isDragging = false;
+  });
+
+  function showPlayer() {
+    if (!playerVisible) {
+        playerBar.style.display = 'flex';
+        setTimeout(() => { playerBar.style.transform = 'translateY(0)'; }, 10);
+        playerVisible = true;
+    }
   }
 
-  function closeTracklist() {
-      document.getElementById('tracklist-modal').style.display = 'none';
+  function updatePlayIcons() {
+    const stopS = '<div class="stop-square-small"></div>';
+    const stopB = '<div class="stop-square-bottom"></div>';
+    bottomBtn.innerHTML = isPlaying ? stopB : '▶';
+    smallBtn.innerHTML = (isPlaying && isLiveMode) ? stopS : '▶';
+    
+    if (isPlaying) startProgress();
+    else clearInterval(progressInterval);
   }
 
-  // Like Toggle
-  document.getElementById('like-btn').onclick = function() {
-      this.innerText = this.innerText === '♡' ? '♥' : '♡';
-  };
+  function updatePlayerContent(title, sub, img) {
+    playerTitle.innerText = title;
+    playerSub.innerText = sub;
+    bottomCover.src = img;
+    currentProgress = 0; 
+    progressBar.style.width = "0%";
+  }
 
-  // Close Player
-  document.getElementById('close-player').onclick = () => {
-      playerBar.style.transform = 'translateY(100%)';
-      isPlaying = false;
-      updateUI();
-  };
+  smallBtn.addEventListener('click', () => {
+    if (!isLiveMode || !isPlaying) {
+        updatePlayerContent(liveData.title, liveData.sub, liveData.img);
+        isPlaying = true; isLiveMode = true; showPlayer();
+    } else {
+        isPlaying = false; isLiveMode = false;
+    }
+    updatePlayIcons();
+  });
 
-  bottomBtn.onclick = () => { isPlaying = !isPlaying; updateUI(); };
-  smallBtn.onclick = () => { isPlaying = !isPlaying; updateUI(); };
+  bottomBtn.addEventListener('click', () => {
+    isPlaying = !isPlaying;
+    if (!isPlaying) isLiveMode = false;
+    updatePlayIcons();
+  });
+
+  function changeTrack(title, sub, imgSrc) {
+    updatePlayerContent(title, sub, imgSrc);
+    isPlaying = true; isLiveMode = false; showPlayer();
+    updatePlayIcons();
+  }
+
+  const likeBtn = document.getElementById('like-btn');
+  let isLiked = false;
+  likeBtn.addEventListener('click', function() {
+    isLiked = !isLiked; this.innerHTML = isLiked ? '♥' : '♡';
+  });
+
+  const closeBtn = document.getElementById('close-player');
+  closeBtn.addEventListener('click', function() {
+    playerBar.style.transform = 'translateY(100%)';
+    setTimeout(() => { 
+        playerBar.style.display = 'none'; playerVisible = false;
+        isPlaying = false; isLiveMode = false;
+        updatePlayIcons();
+    }, 400);
+  });
 </script>
 
 </body>
