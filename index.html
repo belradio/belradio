@@ -221,6 +221,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   let isLiveMode = false; 
   let currentProgress = 0; 
   let progressInterval;
+  let isDragging = false; // Flag untuk drag
 
   const liveData = {
     title: liveLabelText,
@@ -231,7 +232,7 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
   function startProgress() {
       clearInterval(progressInterval);
       progressInterval = setInterval(() => {
-          if (isPlaying && currentProgress < 100) {
+          if (isPlaying && currentProgress < 100 && !isDragging) {
               currentProgress += 0.1; 
               progressBar.style.width = currentProgress + "%";
           }
@@ -245,11 +246,26 @@ body{ background:#000; color:#fff; overflow-x: hidden; }
       progressBar.style.width = currentProgress + "%";
   }
 
-  pContainer.addEventListener('click', (e) => {
+  // --- REAL-TIME DRAG LOGIC ---
+  function updateFromMouse(e) {
       const rect = pContainer.getBoundingClientRect();
-      const pos = (e.clientX - rect.left) / rect.width;
+      let pos = (e.clientX - rect.left) / rect.width;
+      pos = Math.max(0, Math.min(1, pos)); // Clamp antara 0 dan 1
       currentProgress = pos * 100;
       progressBar.style.width = currentProgress + "%";
+  }
+
+  pContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      updateFromMouse(e);
+  });
+
+  window.addEventListener('mousemove', (e) => {
+      if (isDragging) updateFromMouse(e);
+  });
+
+  window.addEventListener('mouseup', () => {
+      isDragging = false;
   });
 
   function showPlayer() {
